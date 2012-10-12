@@ -1,0 +1,11 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: lastfm_charts
+#
+#  id          :integer       not null, primary key
+#  from        :datetime      
+#  overall     :boolean       
+#  most_recent :boolean       
+#
+

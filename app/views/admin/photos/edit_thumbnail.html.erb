@@ -1,0 +1,66 @@
+<% @webpage.title = "Edit Thumbnail" %>
+<% content_for 'head' do -%>
+  <%= javascript_include_tag(:defaults) %>
+  <%= javascript_include_tag 'comatose_admin' %>
+  <%= javascript_include_tag 'edit_photo' %>
+  <%= javascript_include_tag('builder', 'cropper/cropper') %>
+<% end -%>
+
+<%= error_messages_for 'photo' %>
+<% form_tag(formatted_photo_url(@photo, :html), {:method => :put}) do %>
+  <h3> Title : <%= h(@photo.title) %></h3>
+  <p>
+    Photo size: 
+    <% sw, sh = @photo.size() -%>
+    <%= "#{sw}x#{sh}" %>
+  </p>
+  <p>
+    Thumbnail:&#160;
+    <label for="x1">X</label>
+    <%= text_field_tag('x1', @photo.thumb_x, {:maxlength => 4, :size => 4}) %>
+    <label for="y1">Y</label>
+    <%= text_field_tag('y1', @photo.thumb_y, {:maxlength => 4, :size => 4}) %>
+    <label for="width">Width</label>
+    <%= text_field_tag('width', @width, {:maxlength => 4, :size => 4}) %>
+    <label for="height">Height</label>
+    <%= text_field_tag('height', @height, {:maxlength => 4, :size => 4}) %>
+    <br />
+    Vertical : <%= @photo.thumb_vertical %>
+    <%= link_to 'Swap', formatted_swap_vertical_photo_url(@photo, :html) %>
+  </p>
+  <div class="float thumb_border">
+    <%= photo_tag(@photo, :id => 'mainImage') %>
+  </div>
+  <div class="float thumb_border" id="thumb_preview">
+  </div>
+
+  <%- mw = @photo.thumb_vertical ? 125 : 178 %>
+  <%- mh = @photo.thumb_vertical ? 178 : 125 %>
+  <%- js = capture do %>
+    Event.observe(window, 'load', function() {
+      new Cropper.ImgWithPreview(
+        'mainImage',
+        {
+          previewWrap: 'thumb_preview',
+          minWidth: <%= mw %>,
+          minHeight: <%= mh %>,
+          ratioDim: { x: <%= mw %>, y: <%= mh %> },
+          onEndCrop: onEndCrop
+        }
+      );
+    });
+
+    function onEndCrop( coords, dimensions ) {
+      $('x1').value = coords.x1;
+      $('y1').value = coords.y1;
+      $('width').value = dimensions.width;
+      $('height').value = dimensions.height;
+    }
+  <%- end %>
+  <%= javascript_tag js %>
+  
+  <%= submit_tag %>
+<% end -%>
+
+<%= link_to 'Back to photo', formatted_edit_photo_url(@photo, :html) %>
+  

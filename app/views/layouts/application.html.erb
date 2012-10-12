@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<% @webpage = Webpage.create(@page) if @webpage.nil? and !@page.nil? -%>
+<%# Filthy Hack... 
+  # Set show_admin if the admin user is logged in -%>
+<% @webpage.show_admin = !session[:user].nil? -%>
+
+<!-- www.matthewwest.co.uk                                              -->
+<!-- Copyright (C) 2005-2009 Matthew West                               -->
+  
+  <head profile="http://purl.org/uF/2008/03/">
+    <meta name="title" content="<%= h(@webpage.title) %>" />
+    <meta name="author" content="Matthew West" />
+    <title>
+      <%= h(@webpage.title) %>
+    </title>
+    <%# Content must go before stylesheets so that site.css can override comatose_admin.css -%>
+    <%= @content_for_head %>
+    <%= stylesheet_link_tag "site", :media => "all" %>
+    <%= stylesheet_link_tag "admin", :media => "all" if @webpage.admin? %>
+    <%= stylesheet_link_tag "print", :media => "print" %>
+    <%= stylesheet_link_tag "syntax", :media => "all" %>
+	<!--[if IE 6]>
+	  <%= stylesheet_link_tag "Internet_Explorer_sucks", :media => 'all' %>
+	<![endif]-->
+    <%= shortcut_link_tag %>
+    <%# Stupid hack to appease Eclipse %>
+	<%= "<style type=\"text/css\">#{yield :style}</style>" %>
+    <% if @webpage.has_prev? -%>
+      <%= rel_link("prev", @webpage.prev.uri, h(@webpage.prev.title)) %>
+      <%= rel_link("first", @webpage.first.uri, h(@webpage.first.title)) %>
+    <% end -%>
+    <% if @webpage.has_next? -%>
+      <%= rel_link("next", @webpage.next.uri, h(@webpage.next.title)) %>
+      <%= rel_link("last", @webpage.last.uri, h(@webpage.last.title)) %>
+    <% end -%>
+    <%= rel_link("home", comatose_root_url(:page => ''), 'Index') %>
+	<% up_uri = @webpage.parent.uri unless @webpage.parent.nil? -%>
+    <%= rel_link("up", (up_uri == '') ? '/' : up_uri, h(@webpage.parent.title)) unless @webpage.parent.nil? %>
+    <%= auto_discovery_link_tag(:atom, blogfeed_url(:format => :atom)) %>
+    <%= auto_discovery_link_tag(:rss, blogfeed_url(:format => :rss)) %>
+  </head>
+
+  <body>
+    <div id="bannerhead" <%= 'class="admin"' if @webpage.show_admin %>>
+      <span class="right">www.matthewwest.co.uk</span>
+    </div>
+ 	<div id="main">
+	  <div id="main_content">
+        <%= render :partial => "menu/main", :object => @webpage %>
+  <%#
+    Breadcrumbs
+  -%>   
+        <div id="crumbs">
+          <% @webpage.index.crumbs do |crumb, has_next| -%>
+            <%= link_to h(crumb.crumb_title), crumb.uri %>
+            <% if has_next -%>
+              <%= "&#160;&gt;&#160;" %>
+            <% end -%>
+          <% end -%>
+          <% if @webpage.show_admin and !@webpage.edit_url.nil? -%>
+            | <%= link_to "Edit", @webpage.edit_url %>
+          <% end -%>
+        </div>
+
+ 	    <h1>
+          <%= h(@webpage.title) %>
+        </h1>
+        <% if @webpage.admin? -%>
+          <div class="adminMessage">
+            <%= flash[:notice] %>
+            <%= "<br /><span class=\"error\">#{flash[:error]}</span>" if flash[:error] %>
+          </div>
+        <% end -%>
+    
+        <%= yield %>
+
+        <div style="clear: both;">
+        </div>
+        <div id="footer">
+          <% if @webpage.updated_on then -%>
+            <span class="left">
+              Last modified : <%= @webpage.updated_on.strftime("%d %b %Y") %>
+            </span>
+          <% end -%>  
+          <span class="right vcard">
+            <%= link_to_unless_current "Copyright &#169; 2002-2009", comatose_root_url(:page => 'website-information') %>
+            <%= link_to_unless_current "Matthew West", {:controller => "email", :action => "send_email"}, 
+                                                       {:title => "E-mail me", :class => "fn", :id => 'mehcardname'} %>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

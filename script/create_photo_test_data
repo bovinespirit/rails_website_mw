@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../config/boot'
+ENV["RAILS_ENV"] = 'test'
+require RAILS_ROOT + '/config/environment'
+
+require 'rubygems'
+require 'RMagick'
+
+# Creates test data for Photo regression testing
+
+DATA_DIR = "/test/test_data/"
+IMAGE_FILE = "BristolRiver.jpg"
+
+puts "Reading file..."
+img = nil
+File.open(RAILS_ROOT + DATA_DIR + IMAGE_FILE, "r") do |file|
+  img = Magick::Image.from_blob(file.read)[0]
+end
+
+img.format = "JPG"
+puts "Changing size..."
+img.change_geometry!(Photo::IMAGE_SIZE) {|cols, rows, i| i.resize!(cols, rows)}
+puts "New size: #{img.columns} x #{img.rows}"
+
+puts "Writing main.jpg..."
+blob = img.to_blob
+File.open(RAILS_ROOT + DATA_DIR + "main.jpg", "w") do |file|
+  file.write(blob)
+end
+
+img = Magick::Image.from_blob(blob)[0]
+
+puts "Creating small.jpg..."
+tx, ty = [50, 50]
+tw, th = Photo.thumb_size(200)
+smimg = img.crop(tx, ty, tw, th)
+smimg.format = "JPG"
+sw, sh = Photo.thumb_size('small')
+smimg.resize!(sw, sh)
+File.open(RAILS_ROOT + DATA_DIR + "small.jpg", "w") do |file|
+  file.write(smimg.to_blob)
+end
+

@@ -1,0 +1,15 @@
+page.visual_effect :fade, "photorow_#{@photo.id}", :duration => 1
+page.delay(1) do
+  page.remove "photorow_#{@photo.id}"
+end
+
+page.sortable 'photo_list', 
+              :url => formatted_reorder_photo_set_url(@photo_set, :format => :js),
+              :complete => visual_effect(:highlight, 'photo_list')
+page.visual_effect :highlight, 'photo_list'
+
+page.insert_html :bottom, 'photo_pool', :partial => 'admin/photos/photo',
+                                        :locals => { :allow_edit => false, 
+                                                     :show_dates => false, 
+                                                     :photo_set => @photo_set },
+                                        :object => @photo

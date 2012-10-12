@@ -1,0 +1,18 @@
+<% @webpage.title = 'Contacts Index' -%>
+
+<p>
+  <%= link_to 'New Contact', new_contact_url %>
+</p>
+
+<table>
+  <tr>
+    <th>fn</th>
+    <th>Method</th>
+    <th>Organisation</th>
+    <th>xfn</th>
+    <th>href</th>
+    <th>updated</th>
+    <th> </th>
+  </tr>
+  <%= render :partial => 'contact_row', :collection => @contacts %>
+</table>

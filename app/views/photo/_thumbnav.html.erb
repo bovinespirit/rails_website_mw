@@ -1,0 +1,16 @@
+<% thumbnav = photo if thumbnav == nil -%>
+<% nt = thumbnav.next(photo_set, photo) %>
+
+<% if unreal or thumbnav.prev(photo_set, photo) == nil or nt == nil-%>
+  <%= carousel_inactive_link(:prev) %>
+<% else -%>
+  <%= carousel_link(photo_set, :prev, thumbnav, photo) %>
+<% end -%>
+
+<%= link_to photo_set.title, photo_set.uri, :class => 'ce' unless photo_set.nil? or photo_set.page.nil? %>
+
+<% if unreal or nt == nil or nt.next(photo_set, photo) == nil -%>
+  <%= carousel_inactive_link(:next) %>
+<% else -%>
+  <%= carousel_link(photo_set, :next, thumbnav, photo) %>
+<% end -%>

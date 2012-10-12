@@ -1,0 +1,38 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: redirections
+#
+#  id              :integer       not null, primary key
+#  uri             :string(255)   
+#  targetable_id   :integer       
+#  targetable_type :string(255)   
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+redirect1:
+  id: 1
+  targetable_id: 1
+  targetable_type: 'ComatosePage'
+  uri: '/index'
+redirect2:
+  id: 2
+  targetable_id: 1
+  targetable_type: 'ComatosePage'
+  uri: '/index.html'
+redirect3:
+  id: 3
+  targetable_id: 3
+  targetable_type: 'Photo'
+  uri: '/photos/EasternEurope/Prague1'
+redirect4:
+  id: 4
+  targetable_id: 5
+  targetable_type: 'PhotoSet'
+  uri: '/photos/OtherStuff/Oakley'
+redirect5:
+  id: 5
+  targetable_id: 3
+  targetable_type: 'ComatosePage'
+  uri: '/oldphotos'
+  

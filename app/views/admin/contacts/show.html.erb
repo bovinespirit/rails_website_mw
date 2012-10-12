@@ -1,0 +1,21 @@
+<% @webpage.title = "Contact : #{@contact.fn}" -%>
+
+<p>
+  <%= link_to "Contacts index", contacts_url %> |
+  <%= link_to "Edit contact", edit_contact_url(@contact) %>
+</p>
+
+<dl>
+  <dt>Method</dt>
+  <dd><%= @contact.method_name %></dd>
+  <dt>fn class</dt>
+  <dd><%= @contact.fn_class %></dd>
+  <dt>Organisation</dt>
+  <dd><%= @contact.organisation %></dd>
+  <dt>xfn</dt>
+  <dd><%= @contact.xfn %></dd>
+  <dt>href</dt>
+  <dd><%= link_to @contact.href, @contact.href %></dd>
+  <dt>Updated at</dt>
+  <dd><%= @contact.updated_at %></dd>
+</dl>

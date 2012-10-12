@@ -1,0 +1,24 @@
+<dl>
+  <dt><label for="post_created_at">Creation time:</label></dt>
+  <dd><%= form.datetime_select(:created_at, :order => [:day, :month, :year], :start_year => 2001) %></dd>
+  <dt><label for="post_title">Title:</label></dt>
+  <dd><%= form.text_field(:title) %></dd>
+  <dt><label for="post_tag_list">Tags:</label></dt>
+  <dd><%= form.text_field(:tag_list) %></dd>
+  <dt><label for="post_staging">Staging:</label></dt>
+  <dt><%= form.check_box(:staging) %></dt>
+  <dt><label for="post_body">Body:</label></dt>
+  <dd><%= form.text_area :body, :rows => 20, :cols => 80 %></dd>
+</dl>
+<fieldset>
+  <legend>
+    <%= image_tag 'comatose/spinner.gif', :id=>'preview-spinner', :align=>'absmiddle', :style=>'display:none;' %>
+    <% if @post.new_record? -%>
+      <%= link_to_function "Preview", "preview_text('#{new_preview_posts_url}')" %>
+    <% else -%>
+      <%= link_to_function "Preview", "preview_text('#{preview_post_url(@post)}')" %>
+    <% end -%>
+  </legend>
+  <div id="preview-body">
+  </div>
+</fieldset>

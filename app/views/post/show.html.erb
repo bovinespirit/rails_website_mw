@@ -1,0 +1,26 @@
+<% if @webpage.has_next? -%>
+  <div class="floatr">
+    <%= link_to "#{@webpage.next.menu_title}&raquo;", @webpage.next.uri %>
+  </div>
+<% end -%>
+<% if @webpage.has_prev? -%>
+  <div>
+    <%= link_to "&laquo;#{@webpage.prev.menu_title}", @webpage.prev.uri %>
+  </div>
+<% end -%>
+<div style="width:100%;clear:both;">
+</div>
+
+<div class="sidebarr tag-cloud" id="cloud">
+  Tags:<br />
+  <%= tag_cloud_links %>
+</div>
+
+<dl class="sidebarr frame">
+  <dt class="header">Recent Updates</dt>
+  <% @recent.each do |post| -%>
+    <dd><%= post_link(post) %></dd>
+  <% end -%>
+</dl>
+
+<%= render :partial => 'post', :object => @post, :locals => { :index => false } %>

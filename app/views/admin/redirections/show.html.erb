@@ -1,0 +1,23 @@
+<% @webpage.title = "Show Redirection" -%>
+
+<% wp = @redirection.webpage %>
+<dl>
+  <dt>URI</dt>
+  <dd><%= @redirection.uri %></dd>
+  <% if wp.nil? -%>
+  <dt>No direction</dt>
+  <% else -%>
+    <dt>Type</dt>
+    <dd><%= @redirection.targetable_type %></dd>
+    <dt>Title</dt>
+    <dd><%= wp.title %></dd>
+    <dt>Target URI</dt>
+    <dd><%= link_to wp.uri.to_s, wp.uri %></dd>
+  <% end -%>
+</dl>
+
+<p>
+  <%= link_to "Edit", edit_redirection_path(@redirection) %> |
+  <%= link_to 'Directionless Index', directionless_redirections_path %></dd> |
+  <%= link_to "Index", redirections_path %>
+</p>

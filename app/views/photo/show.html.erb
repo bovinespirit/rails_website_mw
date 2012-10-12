@@ -1,0 +1,2 @@
+<% @webpage = Webpage.create(@photo) -%>
+<%= render :partial => 'photo', :object => @photo, :locals => { :photo_set => nil } %>

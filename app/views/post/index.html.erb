@@ -1,0 +1,13 @@
+<div class="sidebarr tag-cloud" id="cloud">
+  Tags:<br />
+  <%= tag_cloud_links %>
+</div>
+
+<% if @posts.size == 0 -%>
+  <h3>
+    I did not post anything <%= "#{@date[:day].nil? ? 'in' : 'on'} #{@webpage.date[:string]}." %>
+  </h3>
+<% else -%>
+  <%= will_paginate(@post_count, Post.per_page) %>
+  <%= render :partial => 'post', :collection => @posts, :locals => { :index => true } %>
+<% end -%>

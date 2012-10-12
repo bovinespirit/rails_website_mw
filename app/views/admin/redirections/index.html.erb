@@ -1,0 +1,27 @@
+<% @webpage.title = "Redirections Index" -%>
+
+<% content_for 'head' do -%>
+  <%= javascript_include_tag :defaults %>
+<% end -%>
+
+<table id="redirection_list">
+  <tr>
+    <th>uri</th>
+    <th>destination</th>
+    <th colspan="3">&#160;</th>
+  </tr>
+  
+  <%= render :partial => 'redirection', :collection => @redirections %>
+</table>
+
+<% form_tag(google_csv_redirections_path, :multipart => true) do -%>
+  <dl>
+    <dd><label for="data">Upload Google CSV file</label></dd>
+    <dt><%= file_field_tag 'data' %> | <%= submit_tag 'Upload' %></dt>
+  </dl>    
+<% end -%>
+
+<dl>
+  <dd><%= link_to 'New redirection', new_redirection_path %></dd>
+  <dd><%= link_to 'Directionless Index', directionless_redirections_path %></dd>
+</dl>

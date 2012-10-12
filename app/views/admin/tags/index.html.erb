@@ -1,0 +1,14 @@
+<% @webpage.title = 'Tags Index' -%>
+
+<p>
+  <%= link_to 'New Tag', formatted_new_tag_url(:format => :html) %>
+</p>
+
+<table>
+  <tr>
+    <th>name</th>
+    <th>count</th>
+    <th> </th>
+  </tr>
+  <%= render :partial => 'tag_row', :collection => @tags %>
+</table>

@@ -1,0 +1,39 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: gobo_wheels
+#
+#  id                 :integer       not null, primary key
+#  gobo_wheel_type_id :integer       not null
+#  quantity           :integer       default(1), not null
+#  gobo_size_id       :integer       not null
+#  comment            :text          
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+mac5_fixed_wheel:
+  id: 1
+  gobo_wheel_type_id: 1
+  quantity: 9
+  gobo_size_id: 1
+mac5_rotating_wheel:
+  id: 2
+  gobo_wheel_type_id: 2
+  quantity: 5
+  gobo_size_id: 1
+mac2_rotating_wheel1:
+  id: 3
+  gobo_wheel_type_id: 2
+  quantity: 5
+  gobo_size_id: 2
+mac2_rotating_wheel2:
+  id: 4
+  gobo_wheel_type_id: 2
+  quantity: 5
+  gobo_size_id: 2
+mac2_fixed_wheel:
+  id: 5
+  gobo_wheel_type_id: 1
+  quantity: 7
+  gobo_size_id: 2
+

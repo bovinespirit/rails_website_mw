@@ -1,0 +1,37 @@
+<%
+item_count = 0
+top.menu_children.each do |child|
+  next unless child.show_in_menu
+  if child.depth > 2 or !child.section?
+    item_count += 1 
+    if item_count < ApplicationHelper::MENU_LIMIT
+      liclass = child.section? ? "section" : "page"
+ -%>
+<li class="<%= liclass %>">
+	<%= menu_link(child, main) %>
+</li>
+<%  elsif item_count == ApplicationHelper::MENU_LIMIT -%>
+<li class="page">&#8230;</li>
+<%
+    end
+  else
+    if child.current? or child.open?
+-%>
+<li>
+	<ul class="section">
+		<li class="section">
+    	    <%= menu_link(child, main) %>
+		</li>
+        <%= render :partial => 'menu/sub', :locals => { :top => child, :main => main } %>
+	</ul>
+</li>
+<%  else -%>
+<li class="menu">
+	<%= menu_link(child, main) %>
+	<ul class="sub">
+		<%= render :partial => "menu/sub", :locals => { :top => child, :main => main } %>
+	</ul>
+</li>
+<%  end
+  end
+end -%>

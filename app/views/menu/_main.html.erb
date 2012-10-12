@@ -1,0 +1,42 @@
+
+<!-- Menu                                                            -->
+  <% top = main.index -%>
+  <div id="menu">
+    <ul class="main">
+      <li class="page vcard">
+        <a href="#mehcardname" class="include"></a>
+        <%= link_to_unless_current "Index", comatose_root_url, { :rel => 'me', :class => 'url' } %>
+      </li>
+      <%= render :partial => "menu/sub", :locals => { :top => top, :main => main } %>
+      <li class="google">
+        <form action="http://www.google.com/custom" method="get">
+     	  <div>
+	        <a href="http://www.google.com/search">
+              Google Search
+	        </a>
+	        <input class="text" value="" maxlength="255" size="12" name="q" type="text" /><br />
+	        <div>
+	          <input value="" name="sitesearch" type="radio" />
+	          All WWW<br />
+	          <input checked="checked" value="www.matthewwest.co.uk" name="sitesearch" type="radio" />
+	          This site only<br />
+	        </div>
+	        <input type="hidden" name="cof"
+		           value="S:http://www.matthewwest.co.uk;GL:0;VLC:#3333ff;AH:left;LH:80;LC:#3333ff;L:http://www.matthewwest.co.uk/images/h80google.png;ALC:#3333ff;BIMG:http://www.matthewwest.co.uk/images/beams.png;LW:1165;AWFID:ab0c1f8918996ca6;"
+		           />
+	        <input value="www.matthewwest.co.uk" name="domains" type="hidden" />
+	        <input value="Search" name="sa" type="submit" />
+	      </div>
+        </form>
+      </li><%# /Google %>
+    </ul><%# /Main Menu %>
+    <% if show_validation_icons? -%>
+      <a class="plain" href="http://validator.w3.org/check/referer" title="XHTML Validator">
+        <img class="plain" width="88" height="31" alt="Valid XHTML 1.0"
+	         src="/images/w3cvalid-xhtml10.png" />
+      </a>
+      <a class="plain" href="http://jigsaw.w3.org/css-validator/check/referer" title="CSS Validator">
+        <img class="plain" width="88" height="31" src="/images/vcss.png" alt="Valid CSS" />
+      </a>
+    <% end -%>
+  </div>

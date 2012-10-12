@@ -1,0 +1,24 @@
+<% @webpage.title = "PhotoSet: " + @photo_set.title -%>
+<%= error_messages_for 'photo_set' %>
+
+<p>
+  <%= link_to 'Photo Set index', formatted_photo_sets_url(:format => :html) %> | 
+  <%= link_to 'Edit Photo Set', formatted_edit_photo_set_url(@photo_set, :html) %> |
+  <%= link_to 'New Photo', formatted_new_ps_photo_url(@photo_set, :html) %>
+</p>
+
+<dl>
+  <dt><%= @photo_set.page_type %></dt>
+  <dd>
+    <%= link_to @photo_set.uri, @photo_set.uri %> | 
+    <%= link_to 'Edit page', Webpage.create(@photo_set.page).edit_url %>
+  </dd>
+  <dd><em>Photo count</em> : <%= @photo_set.photos.count %></dd>
+  <dd><em>Contents Photo</em> : <%= @photo_set.contents_photo.title if !@photo_set.contents_photo.nil? %></dd>
+</dl>
+
+<%=
+  render :partial => 'admin/photos/photo', :collection => @photo_set.photos, 
+         :locals => { :allow_edit => true, :show_dates => false, :photo_set => nil }
+%>
+

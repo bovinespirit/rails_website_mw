@@ -1,0 +1,9 @@
+<dl>
+  <dt><a href="http://<%= @manufacturer.www %>">Website</a></dt>
+  <dt>Lanterns</dt>
+  <% @manufacturer.lanterns.each do |lantern| -%>
+  <dd>
+    <%= link_to lantern.name, showlantern_url(:manufacturer => @manufacturer.name, :lantern => lantern.name) %>
+  </dd>
+  <% end -%>
+</dl>

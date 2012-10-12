@@ -1,0 +1,26 @@
+<% @page = Comatose::PageWrapper.create_from_slug("lightingdb") -%>
+<!--                                                                    -->
+<!-- lightingdb/index                                                   -->
+<!-- $Rev:: 48                                                        $ -->
+<!-- $LastChangedDate:: 2006-09-19 12:23:10 +0100 (Tue, 19 Sep 2006)  $ -->
+<!--                                                                    -->
+
+<h3 style="clear:both;">
+  Disclaimer
+</h3>
+<p>
+  I cannot guarantee the accuracy of any of the information in this database.  Products change, owners make
+  modifications and I make mistakes.  Therefore I accept no responsibility for any damage or injury that
+  may occur as a result of using the information contained herein.  If you spot a mistake, or you would like
+  something to be added to the database please <%= link_to "email", :controller => 'email' %> me.
+</p> 
+<% Manufacturer.lantern_makers.each do |man| -%>
+<div class="float frame">
+  <h3>
+    <%= man.name %>
+  </h3>
+  <% man.lanterns.each do |lan| -%>
+  <%=  link_to lan.name, showlantern_url(:manufacturer => man.name, :lantern => lan.name) %>
+  <% end -%>
+</div>  
+<% end -%>

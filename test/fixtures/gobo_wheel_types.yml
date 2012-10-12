@@ -1,0 +1,23 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: gobo_wheel_types
+#
+#  id   :integer       not null, primary key
+#  name :string(255)   default("New Wheel"), not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+fixed_wheel:
+  id: 1
+  name: "Fixed Wheel"
+rotating_wheel:
+  id: 2
+  name: "Rotating Wheel"
+rotating_wheel1:
+  id: 3
+  name: "Rotating Wheel 1"
+rotating_wheel2:
+  id: 4
+  name: "Rotating Wheel 2"
+

@@ -1,0 +1,12 @@
+lamplan1:
+  lantern_id: 1
+  lamp_id: 1
+lamplan2:
+  lantern_id: 1
+  lamp_id: 2
+lamplan3:
+  lantern_id: 4
+  lamp_id: 2
+lamplan4:
+  lantern_id: 3
+  lamp_id: 3

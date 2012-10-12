@@ -1,0 +1,281 @@
+/* Correct for site.css */
+
+table.coma {
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+}
+table.coma td {
+  border-width: 0;
+  padding: 0;
+}
+table.coma th {
+  border-width: 0;
+  padding: 0;
+}
+  
+/* General Layout and Header Area */
+/* Content Area */
+#content {
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+}
+
+#content .action {
+  float: right;
+  color: gray;
+}
+#content .action A {
+  font-weight: bold;
+  text-decoration: none;
+  color: green;
+  border-bottom: 1px solid black;
+}
+#content .action A:hover {
+  color: red;
+  border-bottom: 1px solid red;
+}
+#content .page-header {
+  color: gray;
+}
+
+/* Page Listing */
+#content .tree-controller {
+  border: 0px;
+  cursor: pointer;
+}
+#content .page-list.root {
+  clear: both;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 0.1em;
+}
+#content .page-list.collapsed {
+  display: none;
+}
+#content .page-list {
+  clear: both;
+  list-style: none;
+  border-left: 0px dotted silver;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 15px;
+  margin-top: 2px;
+}
+#content .page-list LI {
+  clear: both;
+  padding: 0px;
+  margin: 5px 0px;
+  padding-top: 2px;
+  padding-right: 0px;
+  padding-left: 2px;
+}
+#content .page-list .commands {
+  font-size: 90%;
+  padding-left: 5px;
+  color: silver;
+}
+#content .page-list .commands A {
+  color: gray;
+}
+#content .page-list .commands A.add-page:hover {
+  color: blue;
+}
+#content .page-list .commands A.reorder-children:hover {
+  color: black;
+}
+#content .page-list .commands A.delete-page:hover {
+  color: white;
+}
+#content .page-list .commands A.reordering {
+  background: navy;
+  color: white;
+}
+#content .page-list .commands A.reordering:hover {
+  color: white;
+}
+#content .page-list A.page {
+  text-decoration: none;
+  color: black;
+  margin-left: 3px;
+  font-size: 150%;
+  display: block;
+}
+#content .page-list A.page:hover {
+  /*color: blue;*/
+  background: white url(../images/comatose/title-hover-bg.gif) top left repeat-y;
+}
+#content .handle, #content .do-reorder UL LI .handle {
+  display: none;
+}
+
+#content .page-list .hover {
+  background: #F1F0DB;
+}
+#content .page-list .hover-delete {
+  background: red;
+  color: #FF8E90;
+}
+#content .page-list .hover-delete A,
+#content .page-list .hover-delete .commands A {
+  color: #FF8E90;
+}
+#content .page-list .hover-delete A.page {
+  color: white;
+  border-bottom: 0px;
+}
+#content .page-list .hover-delete UL LI A.page {
+  color: red;
+  border-bottom: 0px;
+}
+
+#content .do-reorder LI .handle {
+  display: inline;
+  background: gray;
+  color: white;
+  padding: 1px 3px;
+  cursor: move;
+}
+
+#content .page-list .do-reorder .commands A {
+  display: none;
+}
+
+/* Page Form */
+#content .page-form {
+  margin-top: 0px;
+}
+#content .page-form LABEL {
+  font-weight: bold;
+  color: #555;
+}
+#content .page-form .meta-info LABEL {
+  color: #999 !important;
+}
+#content .page-form .label { 
+  padding-top: 0.1em;
+  width: 8em;
+  text-align: right;
+  padding-right: 0.1em;
+}
+#content .page-form .label.body {
+  vertical-align: top;
+  padding-top: 10px;
+} 
+#content .page-form .field { 
+  padding-top: 5px;  
+}
+#content .page-form .field-help { 
+  color: gray;
+}
+#content .page-form #page_title {
+  font-size: 125%;
+  font-weight: bold;
+}
+#content .page-form #page_slug {
+  color: gray;
+}
+#content .page-form #page_body {
+  font-family: monospace;
+  font-size: 110%;
+}
+#content #button-group {
+  padding: 10px;
+  text-align: right;
+  background-color: #EAEAEA;
+  margin-top: 10px;
+}
+#content #button-group .last-update {
+  float: left;
+  color: gray;
+  padding-top: 4px;
+  font-weight: bold;
+}
+#content #button-group .last-update LABEL {
+  font-weight: normal;
+}
+#content #button-group A {
+  color: maroon;
+}
+#content #button-group A:hover {
+  color: red;
+}
+#content #preview-area {
+  margin-top: 10px;
+}
+#content #preview-area FIELDSET {
+  border: 1px solid silver;
+}
+#content #preview-area LEGEND {
+  font-size: 125%;
+}
+#content #preview-area .preview-body {
+  padding: 10px;
+}
+#content #preview-area .preview-note {
+  background: #FFFFD9;
+  padding: 15px;
+}
+#content #preview-area .commands {
+  text-align: right;
+  color: gray;
+}
+#content #preview-area .commands A{
+  color: gray;
+}
+#content #preview-area .commands A:hover{
+  color: black;
+}
+/* Errors */
+#errorExplanation {
+  border: 1px solid red;
+  background: #FFEAEB;
+  padding: 10px;
+  margin-top: 10px;
+}
+#errorExplanation h2 {
+  margin: 0px;
+  padding: 0px;
+  color: maroon;
+}
+#errorExplanation p {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 5px;
+  padding-left: 15px;
+}
+#errorExplanation ul {  
+  margin: 0px;
+  padding: 0px;
+  padding-left: 35px;
+}
+#errorExplanation li {
+  margin: 0px;
+  padding: 0px;  
+  padding-top: 5px;
+}
+
+/* Modifiers */
+ 
+/* When JavaScript is Turned Off... We need to adjust some things... */
+.noscript #more-options,
+.noscript #preview-area,
+.noscript #preview-btn,
+.noscript .tree-controller {
+  display: none;
+}
+.noscript .page-list.collapsed {
+  display: block !important;
+}
+.noscript .delete-page:hover {
+  color: red !important;
+}
+.noscript #content .page-form #page_title,
+.noscript #content .page-form #page_slug,
+.noscript #content .page-form #page_parent,
+.noscript #content .page-form #page_keywords,
+.noscript #content .page-form #page_body {
+  width: 100% !important;
+}

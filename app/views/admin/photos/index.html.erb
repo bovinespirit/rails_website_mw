@@ -1,0 +1,15 @@
+<% @webpage.title = "Photo Index" -%>
+
+<% content_for 'head' do -%>
+  <%= javascript_include_tag :defaults %>
+<% end -%>
+
+<p>
+  <%= link_to 'New Photo', :action => 'new' %>
+</p>
+
+<div style="width: 100%;" id="photo_pool">
+  <%= render :partial => 'photo', :collection => @photos, :locals => { :allow_edit => true, 
+                                                                       :show_dates => true,
+                                                                       :photo_set => nil } %>
+</div>

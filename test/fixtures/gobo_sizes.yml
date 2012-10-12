@@ -1,0 +1,19 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: gobo_sizes
+#
+#  id   :integer       not null, primary key
+#  name :string(255)   default(""), not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+gobo_size_mac500:
+  id: 1
+  name: Mac 500
+gobo_size_E:
+  id: 2
+  name: E
+gobo_size_golden_scan:
+  id: 3
+  name: Golden Scan HPE

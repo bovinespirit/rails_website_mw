@@ -1,0 +1,16 @@
+<% @webpage.title = "Posts Index" -%>
+
+<p>
+  <%= link_to 'Admin Index', :controller => 'admin/admin', :action => 'index' %> | 
+  <%= link_to 'New Post', :action => 'new' %>
+</p>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Title</th>
+    <th>&#160;</th>
+  </tr>
+  
+  <%= render :partial => 'post_row', :collection => @posts %>
+</table>

@@ -1,0 +1,35 @@
+<%# Displays a card for a Photo -%>
+
+<%# On Entry -%>
+<%# object => Photo object to be displayed -%>
+<%# show_dates => Whether to show the Created on and Updated on dates -%>
+<%# allow_edit => Whether to show Edit and Delete buttons -%>
+<%# photo_set => if this is a PhotoSet then show Add link -%>
+
+<div class="float adminphoto" id="photocard_<%= photo.id %>">
+  <h3><%= photo.title %></h3>
+  <%= link_to thumb_tag(photo, 
+                        "xsmall", 
+                        { :class => "#{(photo.thumb_vertical) ? 'vertical' : 'horizontal'}",
+                          :id => "thumb_#{photo.id}" }
+                        ), formatted_photo_url(photo, :html) %>
+  <% if show_dates -%>
+    <p>Created:<%= photo_create_date(photo) if photo.created_on %></p>
+    <p>Updated:<%= photo.updated_on.strftime("%d %b %Y") if photo.updated_on %></p>
+  <% end -%>
+  <% if allow_edit -%>
+    <p>
+      <%= link_to "Edit", edit_photo_url(photo) %> |
+      <%= link_to "Thumb", formatted_edit_thumbnail_photo_url(photo, :html) %> | 
+      <%= link_to_remote "Delete", { :url => formatted_photo_url(photo, :js), :method => :delete, :confirm => "Delete #{photo.title}?" },
+                                   { :href => formatted_photo_url(photo, :html) } %>
+
+    </p>
+  <% end -%>
+  <% if photo_set -%>
+    <p>
+      <%= link_to_remote "Add", { :url => formatted_add_ps_photo_url(photo_set, photo, :js) }, 
+                                { :href => formatted_add_ps_photo_url(photo_set, photo, :html) } %>
+    </p>
+  <% end -%>
+</div>

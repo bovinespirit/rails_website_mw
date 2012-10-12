@@ -1,0 +1,15 @@
+<tr id="row_<%= tagging_row.id %>">
+  <td><%= tagging_row.taggable_type %></td>
+  <td>
+    <%= thumb_card(nil, tagging_row.taggable, 'xxsmall', nil, nil, 'float') if tagging_row.taggable_type == 'Photo' %>
+  </td>
+  <td>
+    <%= tagging_row.taggable.title %>
+  </td>
+  <td>
+    <%= button_to "Untag", untag_url(:id => tagging_row.tag_id,
+                                               :taggable_type => tagging_row.taggable_type,
+                                               :taggable_id => tagging_row.taggable_id,
+                                               :format => :html) %>
+  </td>
+</tr>

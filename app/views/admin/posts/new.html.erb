@@ -1,0 +1,18 @@
+<% @webpage.title = "New Post" -%>
+<% content_for 'head' do -%>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'blog_admin' %>
+<% end -%>
+
+<%= error_messages_for :post %>
+
+<% form_for(:post, :url => posts_url, :html => {:id => 'blogform'}) do |f| -%>
+  <%= render(:partial => 'form', :locals => { :form => f }) %>
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end -%>
+
+<p>
+  <%= link_to 'Post Index', posts_url %>
+</p>

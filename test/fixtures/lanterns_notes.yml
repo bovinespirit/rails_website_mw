@@ -1,0 +1,16 @@
+lannote1:
+   lantern_id: 1
+   note_id: 1
+lannote2:
+   lantern_id: 1
+   note_id: 2
+lannote3:
+   lantern_id: 4
+   note_id: 1
+lannote4:
+   lantern_id: 4
+   note_id: 2
+lannote5:
+   lantern_id: 3
+   note_id: 3
+

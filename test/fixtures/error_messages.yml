@@ -1,0 +1,37 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: error_messages
+#
+#  id                :integer       not null, primary key
+#  error             :string(16)    default("ERROR"), not null
+#  name              :string(255)   default("name"), not null
+#  short_description :string(255)   default("No Description"), not null
+#  long_description  :text          
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+lamp_error:
+  id: 1
+  error: "LERR"
+  name: "Lamp Error"
+  short_description: "Lamp hasn't ignited within 10 minutes of a 'Lamp On' command."
+  long_description: "1-2-3 1_2_3 a@b,c A:B;C yes/no true (false)"
+cyan_error:
+  id: 2
+  error: "CYER"
+  name: "Cyan Wheel Time-Out"
+  short_description: "The cyan wheel's magnetic sensor is not responding."
+  long_description: "684Bytes of exciting text. ABC:CBA."
+rger_error:
+  id: 3
+  error: "RgER"
+  name: "Rotating Gobo Time-Out"
+  short_description: "The rotating gobo wheel rotation's magnetic indexing circuit has malfunctioned."
+  long_description: "The unit detects the position of the wheel by waiting for a signal from a magnetic sensor which
+  detects a magnet that is mounted on the wheel.  If the magnet has fallen out, the sensor is broken, the connection
+  between the sensor and the motherboard is broken, the wheel is not aligned or the wheel is not rotating properly then
+  it detects an error.  It looks for a signal while the unit is working, not just during reset.  To align the wheel
+  power up the unit and let it reset, then push the wheel round.  It will go round in obvious steps.  On one of these
+  steps the magnet should fall underneath the senser.  If it doesn't loosen off the wheel, move it round then tighten it
+  again."

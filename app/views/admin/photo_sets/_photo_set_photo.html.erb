@@ -1,0 +1,14 @@
+<%# object => Photo -%>
+<%# photo_set => PhotoSet -%>
+
+<li id="photorow_<%= photo_set_photo.id %>">
+  <%= radio_button('photo_set', 'contents_photo_id', photo_set_photo.id) %>
+  <%= thumb_tag(photo_set_photo, 'xxsmall') %>
+  <p>
+    <%= photo_set_photo.title %>
+  </p>
+  <%= link_to 'Up', formatted_move_up_ps_photo_url(photo_set, photo_set_photo, :html) %> | 
+  <%= link_to 'Down', formatted_move_down_ps_photo_url(photo_set, photo_set_photo, :html) %> | 
+  <%= link_to_remote 'Remove', { :url => formatted_remove_ps_photo_url(photo_set, photo_set_photo, :js) },
+                               { :href => formatted_remove_ps_photo_url(photo_set, photo_set_photo, :html) } %> 
+</li>

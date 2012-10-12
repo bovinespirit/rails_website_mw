@@ -1,0 +1,18 @@
+<dl>
+  <dt>Blog Posts:</dt>
+  <% tag.taggings.find(:all , :conditions => {:taggable_type => 'Post'}, 
+                              :order => 'created_at DESC').each do |tagging| -%>
+    <% post = tagging.taggable -%>
+    <% unless post.staging -%> 
+      <dd><%= post_link(post) %></dd>
+    <% end -%>
+  <% end -%>
+  <dt>Photos:</dt>
+  <dd>
+    <% tag.taggings.find(:all, :conditions => {:taggable_type => 'Photo'},
+                               :order => 'created_at DESC').each do |tagging| -%>
+      <% photo = tagging.taggable -%>
+      <%= thumb_card(nil, photo, 'xsmall', nil, nil, 'float') %>
+    <% end -%>
+  </dd>
+</dl>

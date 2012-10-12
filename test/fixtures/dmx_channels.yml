@@ -1,0 +1,29 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: dmx_channels
+#
+#  id          :integer       not null, primary key
+#  lantern_id  :integer       not null
+#  mode        :string(255)   default("DMX"), not null
+#  channels    :integer       default(0), not null
+#  description :string(255)   
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+mac500_mode2:
+  id: 1
+  lantern_id: 1
+  mode: "Mode 2"
+  description: "16 bit pan and tilt, w/speed control"
+  channels: 14
+mac500_mode4:
+  id: 2
+  lantern_id: 1
+  mode: "Mode 4"
+  description: "16 bit pan and tilt, w/speed control"
+  channels: 16
+golden_scan_dmx:
+  id: 3
+  lantern_id: 3
+  channels: 12

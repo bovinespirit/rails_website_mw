@@ -1,0 +1,19 @@
+
+<%# On entry: %>
+<%#  extra_class = extra <a> classes %>
+<%#  slug = photo slug %>
+<%#  size = size of captioned image %>
+
+<% photo = caption -%>
+<% width, height = Photo.size(size) -%>
+<% extra_class ||= '' -%>
+
+<a class="caption <%= extra_class %>" href="<%= photoshow_url(:photo => photo) %>">
+  <img src="<%= thumb_url(:photo => photo, :size => size) %>", alt="<%= photo.title %>",
+       width="<%= width %>", height="<%= height %>" />
+  <div style="width:<%= width %>; background-image: url(<%= thumbbg_url(:photo => photo, :size => size) %>)">
+    <h3><%= photo.title %></h3>
+    <%= process_text(photo.description) %>
+    <span class="date"><%= photo.created_on.strftime("%d %b %Y") %></span>
+  </div>
+</a>

@@ -1,0 +1,32 @@
+<% @webpage.title = "Edit Tag - #{@tag.name}" %>
+
+<%= error_messages_for 'tag' %>
+
+<% form_for(:tag, :url => formatted_tag_url(@tag, :html), :html => { :method => :put }) do |f| %>
+  <%= render(:partial => 'form', :locals => { :form => f }) %>
+  <p>
+    <%= submit_tag 'Update' %>
+  </p>
+<% end -%>
+
+<table class="float" style="width:30%;" id="tagging_table">
+  <tr>
+    <th width="10em">Type</th>
+    <th width="100px"> </th>
+    <th>Title</th>
+    <th width="20em"> </th>
+  </tr>
+  <%= render :partial => 'tagging_row', :collection => @tag.taggings %>
+</table>
+
+<table class="float" style="width:30%;" id="photo_set_table">
+  <tr>
+    <th>Title</th>
+    <th width="20em"> </th>
+  </tr>
+  <%= render :partial => 'photo_set_row', :collection => PhotoSet.find(:all), :locals => {:tag => @tag} %>
+</table>
+
+<p class="clear">
+  <%= link_to('Back to Tags index', formatted_tags_url(:format => :html)) %>
+</p>

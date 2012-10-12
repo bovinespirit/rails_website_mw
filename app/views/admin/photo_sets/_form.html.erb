@@ -1,0 +1,15 @@
+<dl>
+  <dt><label for="photo_set_page_type">Page Type</label></dt>
+  <dd>
+    <%= select 'photo_set', 'page_type', Webpage.class_list, {}, 
+               { :onchange => "new Ajax.Updater('pspid',"+
+                 " '/admin/photo_sets/typeselect/' + this[this.selectedIndex].value," +
+                 "  {asynchronous:true, evalScripts:true});"
+               } %>
+  </dd>
+ 
+  <dt><label for="photo_set_page_id">Page Title</label></dt>
+  <dd id="pspid"><%= select 'photo_set', 'page_id', 
+                           Webpage.pages(@photo_set.page_type), 
+                           { :include_blank => true } %></dd>
+</dl>

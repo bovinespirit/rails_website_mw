@@ -1,0 +1,18 @@
+<dl>
+  <dt><label for="redirection_url">URL</label></dt>
+  <dd><%= form.text_field :uri %></dd>
+  
+  <dt><label for="redirection_targetable_type">Page Type</label></dt>
+  <dd>
+    <%= select 'redirection', 'targetable_type', Webpage.class_list, {}, 
+               { :onchange => "new Ajax.Updater('rtid',"+
+                 " '/admin/redirections/typeselect/' + this[this.selectedIndex].value," +
+                 "  {asynchronous:true, evalScripts:true});"
+               } %>
+  </dd>
+ 
+  <dt><label for="redirection_targetable_id">Page Title</label></dt>
+  <dd id="rtid"><%= select 'redirection', 'targetable_id', 
+                           Webpage.pages(@redirection.targetable_type), 
+                           { :include_blank => true } %></dd>
+</dl>

@@ -1,0 +1,21 @@
+
+mac500_fixed_wheel:
+  lantern_id: 1
+  gobo_wheel_type_id: 1
+  quantity: 9
+mac500_rotating_wheel:
+  lantern_id: 1
+  gobo_wheel_type_id: 2
+  quantity: 5
+mac_2000_rotating_wheel1:
+  lantern_id: 2
+  gobo_wheel_type_id: 3
+  quantity: 5
+mac_2000_rotating_wheel2:
+  lantern_id: 2
+  gobo_wheel_type_id: 4
+  quantity: 5
+gs_fixed_wheel:
+  lantern_id: 2
+  gobo_wheel_type_id: 1
+  quantity: 5

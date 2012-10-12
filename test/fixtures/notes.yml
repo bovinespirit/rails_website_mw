@@ -1,0 +1,23 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: notes
+#
+#  id    :integer       not null, primary key
+#  title :string(255)   default("Title"), not null
+#  note  :text          not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+mac_note1:
+  id: 1
+  title: Switch off display
+  note: Press MENU, press DOWN until you reach SPEC, press ENTER, press DOWN until you reach DiSP, press ENTER...
+mac_note2:
+  id: 2
+  title: Strike lamp
+  note: Go into MAN, find LpOn, press ENTER
+gs_note:
+  id: 3
+  title: Required tools
+  note: Hammer, AJ, big screwdriver...

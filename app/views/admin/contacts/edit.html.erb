@@ -1,0 +1,14 @@
+<% @webpage.title = "Edit Contact - #{@contact.fn}" %>
+
+<%= error_messages_for 'contact' %>
+
+<% form_for(:contact, :url => contact_url(@contact), :html => { :method => :put }) do |f| %>
+  <%= render(:partial => 'form', :locals => { :form => f }) %>
+  <p>
+    <%= submit_tag 'Update' %>
+  <p>
+<% end -%>
+
+<p>
+  <%= link_to 'Back to Contact index', contacts_url %>
+</p>

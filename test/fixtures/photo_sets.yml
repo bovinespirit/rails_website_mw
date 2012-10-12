@@ -1,0 +1,43 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: photo_sets
+#
+#  id                :integer       not null, primary key
+#  page_id           :integer       default(0)
+#  page_type         :string(255)   
+#  contents_photo_id :integer       
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+quad_photo_set:
+# Has 4 photos ids 1, 2, 3, 4
+  id: 3
+  page_type: "ComatosePage"
+  page_id: 3
+  contents_photo_id: 3
+
+duo_photo_set:
+# Has two photos - first_duo_photo and second_duo_photo
+  id: 4
+  page_type: "ComatosePage"
+  page_id: 4
+
+big_photo_set:
+# Has lots of photos 101..107
+  id: 5
+  page_type: "ComatosePage"
+  page_id: 5
+  contents_photo_id: 103
+
+lonely_photo_set:
+# Contains one photo - lonely_photo
+  id: 6
+  page_type: "ComatosePage"
+  page_id: 9
+  
+textile_photo_set:
+# One photo - lloyds_photo
+  id: 10
+  page_type: "ComatosePage"
+  page_id: 10

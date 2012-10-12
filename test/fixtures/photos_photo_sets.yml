@@ -1,0 +1,59 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: photos_photo_sets
+#
+#  id           :integer       not null, primary key
+#  photo_id     :integer       
+#  photo_set_id :integer       
+#  position     :integer       
+#
+
+pps1:
+  id: 1
+  photo_id: 1
+  photo_set_id: 3
+  position: 1
+pps2:
+  id: 2
+  photo_id: 2
+  photo_set_id: 3
+  position: 2
+pps3:
+  id: 3
+  photo_id: 3
+  photo_set_id: 3
+  position: 3
+pps4:
+  id: 4
+  photo_id: 4
+  photo_set_id: 3
+  position: 4
+pps5:
+  id: 5
+  photo_id: 5
+  photo_set_id: 6
+  position: 1
+pps6: 
+  id: 6
+  photo_id: 6
+  photo_set_id: 4
+  position: 1
+pps7:
+  id: 7
+  photo_id: 7
+  photo_set_id: 4
+  position: 2
+pps8:
+  id: 8
+  photo_id: 1
+  photo_set_id: 10
+  position: 1
+
+<% for i in 1..7 %>
+pps10<%= i %>:
+  id: 10<%= i %>
+  photo_id: 10<%= i %>
+  photo_set_id: 5
+  position: <%= 8-i %>
+<% end %>

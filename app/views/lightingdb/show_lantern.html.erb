@@ -1,0 +1,185 @@
+
+<!-- Show Lantern                                                                -->
+<!-- $Rev:: 109                                                                $ -->
+<!-- $LastChangedDate:: 2006-12-11 22:36:55 +0000 (Mon, 11 Dec 2006)           $ -->
+
+<% content_for 'style' do %>
+   table.border {
+           width: auto;
+	   margin: 0em;
+	   }
+   table.border td {
+           padding: 0.2em;
+	   }
+   table.border th {
+           padding: 0.2em;
+	   font-size: 100%;
+	   }
+   dd {
+           padding-left: 2em;
+           }
+   dt {
+           padding-top: 0.5em;
+           }
+<% end -%>
+
+<h2>
+  Lantern Information
+</h2>
+
+<% if flash[:notice] -%>
+  <div class="error">
+    <%= flash[:notice] %>
+  </div>
+<% end -%>
+
+<dl>
+  <dt>Manufacturer</dt>
+  <dd><%= link_to @manufacturer.name, showmanufacturer_url(:manufacturer => @manufacturer.name) %></dd>
+  <dt>Weight</dt>
+  <dd><%= @lantern.weight %>kg</dd>
+  <dt>Lantern Type</dt>
+  <dd><%= @lantern.lantern_type.name %></dd>
+  <% if @lantern.dmx_channels.first -%>
+    <dt>DMX Channels</dt>
+    <% if @lantern.dmx_channels.size > 1 -%>
+      <dd>
+        <table class="border">
+	  <tr>
+	    <th>DMX Mode</th>
+	    <th>Channels</th>
+	    <th>Description</th>
+	  </tr>
+	  <% for mode in @lantern.dmx_channels -%>
+            <tr>
+	      <td><%= mode.mode %></td>
+	      <td><%= mode.channels %></td>
+	      <td><%= mode.description %></td>
+	    </tr>
+          <% end -%>
+        </table>
+      </dd>
+    <% else -%>
+      <dd><%= @lantern.dmx_channels.first.channels %></dd>
+    <% end -%>
+  <% end -%>
+
+  <% if @lantern.beam_angles.first -%>
+    <dt>Lens</dt>
+    <% if @lantern.beam_angles.count > 1 -%>
+      <dd>
+	<table class="border">
+	  <tr>
+	    <th>&#160;</th>
+	    <th>Minimum Angle</th>
+	    <th>Maximum Angle</th>
+	  </tr>
+	  <% for beam_angle in @lantern.beam_angles -%>
+	    <tr>
+	      <td><%= beam_angle.optional_str %></td>
+	      <% if beam_angle.zoom? -%>
+	        <td><%= beam_angle.minangle %>&deg;</td>
+		<td><%= beam_angle.maxangle %>&deg;</td>
+	      <% else -%>
+	        <td colspan="2"><%= beam_angle.minangle %>&deg;</td>
+	      <% end -%>
+	    </tr>
+	  <% end -%>
+	</table>
+      </dd>
+    <% else -%>
+      <% beam_angle = @lantern.beam_angles.first -%>
+      <% if beam_angle.zoom? -%>
+        <dd>
+	  <ul class="nobullet">
+	    <li>Minimum Angle : <%= beam_angle.minangle %>&deg;</li>
+	    <li>Maximum Angle : <%= beam_angle.maxangle %>&deg;</li>
+	  </ul>
+	</dd>
+      <% else -%>
+        <dd>Beam Angle : <%= beam_angle.minangle %>&deg;</dd>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+
+  <% if @lantern.lamps.first -%>
+    <% if @lantern.lamps.count > 1 -%>
+      <dt>Lamps</dt>
+      <dd>
+        <table class="border">
+	  <tr>
+	    <th>Lamp</th>
+	    <th>Manufacturer</th>
+	    <th>Power</th>
+	    <th>Life</th>
+	  </tr>
+	  <% for lamp in @lantern.lamps -%>
+	    <tr>
+	      <td><%= lamp.name %></td>
+	      <td><%= lamp.manufacturer.name %></td>
+	      <td><%= lamp.power %>W</td>
+	      <% if lamp.life -%>
+	        <td><%= lamp.life %>Hr</td>
+	      <% else -%>
+	        <td>&#160;</td>
+	      <% end -%>  
+	    </tr>
+	  <% end -%>
+	</table>
+      </dd>
+    <% else -%>
+      <dt>Lamp</dt>
+      <dd>
+	<ul class="nobullet">
+	  <li>Lamp : <%= @lantern.lamps.first.name %></li>
+	  <li>Manufacturer : <%= @lantern.lamps.first.manufacturer.name %></li>
+	  <li>Power : <%= @lantern.lamps.first.power %>W</li>
+	  <% if @lantern.lamps.first.life -%>
+      	<li>Life : <%= @lantern.lamps.first.life %>Hr</li>
+      <% end -%>
+	</ul>
+      </dd>
+    <% end -%>
+  <% end -%>
+  <% if @lantern.currents.first -%>
+    <dt>Power</dt>
+    <dd>
+      <% if @lantern.currents.count > 1 -%>
+	<table class="border">
+	  <tr>
+	    <th>Voltage</th>
+	    <th>Current</th>
+	    <th>Frequency</th>
+	  </tr>
+	  <% for cur in @lantern.currents -%>
+	    <tr>
+	      <td><%= cur.voltage %>V</td>
+	      <td><%= cur.current %>A</td>
+	      <td><%= cur.frequency %>Hz</td>
+	    </tr>
+	  <% end -%>
+	</table>
+      <% else -%>
+        <% cur = @lantern.currents.first -%>
+        <ul classw="nobullet">
+	      <li>Voltage : <%= cur.voltage %>V</li>
+	      <li>Current : <%= cur.current %>A</li>
+	      <li>Frequency : <%= cur.frequency %>Hz</li>
+	    </ul>
+      <% end -%>
+    </dd>
+  <% end -%>
+
+  <% if @lantern.gobo_wheels.first -%>
+    <% uri = showgobos_url(:manufacturer => @lantern.manufacturer.name, :lantern => @lantern.name) -%>
+    <dt><%= link_to "Gobos", uri %></dt>
+  <% end -%>
+
+  <% if @lantern.error_messages.first -%>
+    <dt><%= link_to "Errors", showerrors_url(:manufacturer => @lantern.manufacturer.name, :lantern => @lantern.name) %></dt>
+  <% end -%>
+
+  <dt>
+    <%= link_to "Return to index", :action => "index" %>
+  </dt>
+</dl>

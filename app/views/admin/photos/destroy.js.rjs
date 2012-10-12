@@ -1,0 +1,5 @@
+page.visual_effect :fade, "photocard_#{@photo.id}", :duration => 1
+page.delay(1) do
+  page.remove "photocard_#{@photo.id}"
+end
+page.visual_effect :highlight, 'photo_pool'

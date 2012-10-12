@@ -1,0 +1,59 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+<% current = Time.gm(2006, 3, 10, 14, 30) %>
+one:
+  id: 1
+  created_at: <%= current %>
+  updated_at: <%= current + 1.day %>
+  title: "one"
+  body: <%= "This year, this month, this day #{(ar='';500.times{ ar<<'ab ' };ar)} Fin" %>
+  staging: false
+two:
+  id: 2
+  created_at: <%= current - 1.hour %>
+  updated_at: <%= current + 1.day + 30.minutes %>
+  title: "two"
+  body: "This year, this month, this day, but an hour older"
+  staging: false
+three:
+  id: 3
+  created_at: <%= Time.gm(2006, 3, 1, 00, 01) %>
+  updated_at: <%= current %>
+  title: "three"
+  body: "This year, this month"
+  staging: false
+four:
+  id: 4
+  created_at: <%= Time.gm(2006, 3, 31, 23, 59) %>
+  updated_at: <%= current - 1.week %>
+  title: "four"
+  body: "This year, end of this month"
+  staging: true
+five:
+  id: 5
+  created_at: <%= Time.gm(2006, 4, 1, 00, 01) %>
+  updated_at: <%= current - 1.month %>
+  title: "five"
+  body: "This year, start of next month"
+  staging: true
+six:
+  id: 6
+  created_at: <%= Time.gm(2005, 12, 31, 23, 58) %>
+  updated_at: <%= current - 1.month %>
+  title: "six"
+  body: "End of last year"
+  staging: false
+seven:
+  id: 7
+  created_at: <%= Time.gm(2007, 1, 1, 00, 01) %>
+  updated_at: <%= current - 1.week %>
+  title: "seven"
+  body: "Start of next year"
+  staging: false
+eight:
+  id: 8
+  created_at: <%= Time.gm(2006, 2, 28, 23, 59) %>
+  updated_at: <%= current - 1.month - 1.week %>
+  title: "eight"
+  body: "This year, start of previous month"
+  staging: false
+  

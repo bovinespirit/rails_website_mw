@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: lastfm_items
+#
+#  id              :integer       not null, primary key
+#  lastfm_chart_id :integer       not null
+#  position        :integer       not null
+#  name            :string(255)   
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+lastfmitem1:
+  id: 1
+  lastfm_chart_id: 123
+  position: 1
+  name: "Cliff"
+lastfmitem2:
+  id: 2
+  lastfm_chart_id: 123
+  position: 2
+  name: "Englebert"
+lastfmitem3:
+  id: 3
+  lastfm_chart_id: 321
+  position: 1
+  name: "Englebert"
+lastfmitem4:
+  id: 4
+  lastfm_chart_id: 321
+  position: 2
+  name: "Cliff"
+

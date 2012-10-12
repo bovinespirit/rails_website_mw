@@ -1,0 +1,42 @@
+
+pre.ruby {
+  padding: 0.2em;
+  margin: 1em;
+  overflow: auto;
+  background-color: <%= light_grey %>;
+  border: solid 1px <%= dark_grey %>;
+  }
+pre .normal { color: #111; }
+pre .comment { color: #f00; font-style: italic; }
+pre.ruby .keyword { color: #a0a1ff; font-weight: bold; }
+pre.ruby .method { color: #111; }
+pre.ruby .class { color: #c1c042; }
+pre.ruby .module { color: #c1c042; }
+pre.ruby .punct { color: #111;  }
+pre.ruby .symbol { color: #6681d3; }
+pre.ruby .string { color: #ad9360; }
+pre.ruby .char { color: #111; }
+pre.ruby .ident { color: #111; }
+pre.ruby .constant { color: #c1c042; }
+pre.ruby .regex { color: #666; }
+pre.ruby .number { color: #111; }
+pre.ruby .attribute { color: #5bb; }
+pre.ruby .global { color: #7FB; }
+pre.ruby .expr { color: #5bb; }
+pre.ruby .escape { color: #5bb; }
+
+pre.xml {
+  padding: 0.2em;
+  margin: 1em;
+  overflow: auto;
+  background-color: #eee;
+  border: 1px dotted <%= dark_grey %>;
+  color: #440088;
+  }
+pre.xml .punct { color: #111; }
+pre.xml .attribute { color: #161; }
+pre.xml .string { color: #161; }
+pre.xml .xml { color: #111; }
+pre.xml .namespace { color: #111; }
+pre.xml .tag { color: #111; }
+

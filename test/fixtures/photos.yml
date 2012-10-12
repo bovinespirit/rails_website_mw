@@ -1,0 +1,159 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: photos
+#
+#  id                  :integer       not null, primary key
+#  title               :string(255)   
+#  slug                :string(255)   
+#  description         :string(255)   
+#  updated_on          :datetime      
+#  created_on          :datetime      
+#  text                :text          
+#  thumb_x             :integer       default(0)
+#  thumb_y             :integer       default(0)
+#  thumb_l             :integer       default(0)
+#  thumb_vertical      :boolean       
+#  width               :integer       default(0)
+#  height              :integer       default(0)
+#  camera_model        :string(255)   default("No data")
+#  aperture            :float         default(0.0)
+#  exposure            :string(255)   default("No data")
+#  focal_length        :float         default(0.0)
+#  metering            :string(255)   default("No data")
+#  processed_with_gimp :boolean       
+#  vague_created_date  :boolean       
+#
+
+
+lloyds_photo:
+  id: 1
+  title: 'Lloyds Tour'
+  slug: 'lloyds-tour'
+  description: |
+      * *strong*
+      * _underlined_: normal
+      * _stuff_: unadorned
+      * more
+      
+  text: 'test text'
+  created_on: <%= 1.month.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  thumb_x: 0
+  thumb_y: 0
+  thumb_l: 168
+  thumb_vertical: false
+  width: 160
+  height: 110
+  camera_model: 'Super Cam'
+  aperture: 2.8
+  exposure: 1/4
+  focal_length: 12
+  metering: 'Centre Weighted'
+  processed_with_gimp: true
+  vague_created_date: true
+  
+disco_photo:
+  id: 2
+  title: 'Disco'
+  slug: 'disco'
+  description: 'Description of disco photo'
+  text: 'D I S C O text'
+  created_on: <%= 1.year.ago.strftime("%Y-%m-%d %H:%M:%S") %>  
+  width: 160
+  height: 80
+  thumb_x: 0
+  thumb_y: 0
+  thumb_l: 100
+  thumb_vertical: false
+  camera_model: 'Super Cam'
+  aperture: 2.8
+  exposure: 1/4
+  focal_length: 12
+  metering: 'Centre Weighted'
+  processed_with_gimp: false
+  vague_created_date: true
+  
+another_photo:
+  id: 3
+  title: 'Another Photo'
+  slug: 'another-photo'
+  description: 'Another photo description'
+  text: 'Another photo text'
+  created_on: <%= 3.days.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  width: 160
+  height: 120
+  thumb_x: 0
+  thumb_y: 0
+  thumb_l: 100
+  thumb_vertical: false
+  camera_model: 'Super Cam'
+  aperture: 2.8
+  exposure: 1/4
+  focal_length: 12
+  metering: 'Centre Weighted'
+  processed_with_gimp: false
+  vague_created_date: false
+
+last_photo:
+  id: 4
+  title: 'Last Photo'
+  created_on: <%= 2.days.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  thumb_x: 9
+  slug: 'last-photo'
+  thumb_y: 10
+  thumb_l: 60
+  thumb_vertical: false
+  width: 150
+  height: 150
+ 
+lonely_photo:
+  id: 5
+  title: 'Lonely Photo'
+  slug: 'lonely-photo'
+  created_on: <%= 1.day.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  thumb_x: 9
+  thumb_y: 10
+  thumb_l: 60
+  thumb_vertical: false
+  width: 150
+  height: 150
+  description: "Lonely testing description"
+  text: "Lonely testing text"
+  camera_model: "Test camera"
+  aperture: 2.8
+  exposure: 1/4
+  focal_length: 12
+  metering: 'Centre Weighted'
+  processed_with_gimp: true
+  vague_created_date: false
+  
+first_duo_photo:
+  id: 6
+  title: 'Duo Photo 1'
+  slug: 'duo-1'
+  created_on: <%= 1.day.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+
+second_duo_photo:
+  id: 7
+  title: 'Duo Photo 2'
+  slug: 'duo-2'
+  created_on: <%= 5.days.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+
+homeless_photo:
+  id: 8
+  title: 'Homeless'
+  slug: 'no-home'
+  created_on: <%= 10.days.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+
+no_title_photo:
+  id: 9
+  created_on: <%= 11.weeks.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+
+<% for i in 1..7 %>
+photo_<%= i %>:
+  id: 10<%= i %>
+  title: <%= "Photo #{i}" %>
+  created_on: <%= i.weeks.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+<% end %>
+  
+  

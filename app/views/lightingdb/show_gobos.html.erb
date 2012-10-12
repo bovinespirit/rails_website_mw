@@ -1,0 +1,38 @@
+
+<!-- Show Gobos                                                          -->
+<!-- $Rev:: 109                                                        $ -->
+<!-- $LastChangedDate:: 2006-12-11 22:36:55 +0000 (Mon, 11 Dec 2006)   $ -->
+
+<dl>
+  <% for ar in @array -%>
+    <dt><%= ar[:name] %></dt>
+    <dd>
+      <table class="border">
+	<tr>
+	  <% for num in ar[:numbers] -%>
+	    <th width="<%= ar[:width] %>"><%= num %></th>
+	  <% end -%>
+	</tr>
+	<tr>
+	  <% for name in ar[:names] -%>
+	    <td><%= name %></td>
+	  <% end -%>
+	</tr>
+	<tr>
+	  <% for img in ar[:imgs] -%>
+	    <td>
+	      <% if img != false -%>
+	        <%= image_tag img, :alt => "Gobo image", :size => "64x64" %>
+	      <% else -%>
+	        &#160;
+        <% end -%>
+	    </td>
+	  <% end -%>
+	</tr>
+      </table>
+    </dd>
+  <% end -%>
+  <dt><%= link_to "Return to " + @lantern.name + " information", showlantern_url(:manufacturer => @lantern.manufacturer.name, :lantern => @lantern.name) %></dt>
+  <dt><%= link_to "Return to index", :action => :index %></dt>
+</dl>
+

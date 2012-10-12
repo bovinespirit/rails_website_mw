@@ -1,0 +1,40 @@
+/*
+ *  Thank you Microsoft for blighting our lives with your incompetance and stupidity
+ */
+
+html {
+}
+body {
+  text-align: left;
+}
+
+#main {
+    max-width: 1015px;
+    width: 1015px;
+    margin: 0 0 0 11em; // No centering for Windows
+    padding: 0;
+    }
+
+#main_content {
+    max-width: 800px;
+    width: 800px;
+    padding: 0 0 0 25px;
+    margin: 0 0 0 -170px;
+    float: none;
+    display: inline;
+}
+
+#menu {
+  position: absolute;
+  left: 1em;
+  top: 90px;
+  height: auto;
+    max-width: 10em;
+}
+#menu li {
+    padding: 0;
+    height: 1em;
+    }
+#menu a {
+    padding: 0;
+    }

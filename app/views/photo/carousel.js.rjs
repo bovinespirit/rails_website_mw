@@ -1,0 +1,12 @@
+data = carousel_data(@photo_set, @photo, @dir, @current_photo)
+page.insert_html((@dir == :prev) ? :before : :after, data[:ceelem], carousel_thumb(@photo_set, data[:newthumb]))
+page.visual_effect(:fade, data[:oldelem], :duration => 1, :queue => 'start')
+page.delay(1) do
+  page.remove(data[:oldelem])
+  page.visual_effect(:appear, data[:newelem], :duration => 1, :queue => 'end')
+  page.delay(1) do
+    page.replace_html 'thumbnav', :partial => 'thumbnav', 
+                                  :object => data[:newrootthumb],
+                                  :locals => {:photo_set => @photo_set, :photo => @current_photo, :unreal => false}
+  end
+end

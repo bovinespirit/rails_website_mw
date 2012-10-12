@@ -1,0 +1,14 @@
+<% @webpage.title = "New Tag" %>
+
+<%= error_messages_for 'tag' %>
+
+<% form_for(:tag, :url => tags_url) do |f| %>
+  <%= render(:partial => 'form', :locals => { :form => f }) %>
+  <p>
+    <%= submit_tag 'Create' %>
+  </p>
+<% end -%>
+
+<p>
+  <%= link_to 'Back to Tag index', tags_url %>
+</p>

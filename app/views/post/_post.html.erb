@@ -1,0 +1,37 @@
+<%# object => Post -%>
+<%# index => true if it's part of an index, false if the post is being viewed on its own -%>
+<% index ||= false -%>
+<div class="post hentry">
+  <h2 class="entry-title"><%= post_link(post) %></h2>
+  <% if post.respond_to?('tag_list') -%>
+    <h4 class="tags floatr">
+      Tags: <%= show_tags(post) %>
+    </h4>
+  <% end -%>
+  <h4 class="datetime">
+    <% if !post.updated_at.nil? and post.updated_at > (post.created_at + 1.day) -%>
+      <%= post.staging ? "Staging" : "Posted" %>
+      <abbr class="published" title="<%= post.created_at.to_s(:iso8601) %>">
+        <%= show_time(post.created_at, index) %>
+      </abbr>
+      | Updated
+      <abbr class="modified" title="<%= post.updated_at.to_s(:iso8601) %>">
+        <%= show_time(post.updated_at, index) %>
+      </abbr>
+    <% else -%>
+      <%= post.staging ? "Staging" : "Posted" %>
+      <abbr class="published modified" title="<%= post.created_at.to_s(:iso8601) %>">
+        <%= show_time(post.created_at, index) %>
+      </abbr>
+    <% end -%>
+  </h4>
+  <div class="<%= index ? 'entry-summary' : 'entry-content' %>">
+    <% body = process_text(post.body, "Textile", { :obj => post }) %>
+    <%= index ? truncate_post(body, 1000) : body %>
+    <% if index -%>
+      <p>
+        <%= post_link(post, "Read more...") %>
+      </p>
+    <% end -%>
+  </div>
+</div>

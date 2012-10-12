@@ -1,0 +1,10 @@
+<% @webpage.title = "Edit Post : #{@post.title} Ver#{@number}" -%>
+
+<%= error_messages_for :post %>
+
+<p>
+  <%= link_to "View Post", post_url(@post) %> |
+  <%= link_to "Edit Post", edit_post_url(@post) %>
+</p>
+
+<%= render :partial => "old_post", :object => @old_post, :locals => { :post => @post, :number => @number } %>

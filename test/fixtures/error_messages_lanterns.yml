@@ -1,0 +1,13 @@
+
+mac500_lerr:
+  lantern_id: 1
+  error_message_id: 1
+mac500_rger:
+  lantern_id: 1
+  error_message_id: 3
+mac600_lerr:
+  lantern_id: 4
+  error_message_id: 1
+mac600_cyer:
+  lantern_id: 4
+  error_message_id: 2

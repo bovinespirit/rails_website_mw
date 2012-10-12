@@ -1,0 +1,12 @@
+page.visual_effect :fade, "photocard_#{@photo.id}", :duration => 1
+page.delay(1) do
+  page.remove "photocard_#{@photo.id}"
+end
+page.insert_html :bottom, 'photo_list', :partial => 'admin/photo_sets/photo_set_photo',
+                                        :locals => {:photo_set => @photo_set},
+                                        :object => @photo
+page.sortable 'photo_list', 
+              :url => formatted_reorder_photo_set_url(@photo_set, :js),
+              :complete => visual_effect(:highlight, 'photo_list')
+page.visual_effect :highlight, 'photo_list'
+              

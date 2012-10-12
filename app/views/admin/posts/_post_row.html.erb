@@ -1,0 +1,8 @@
+<tr>
+  <td><%= post_row.created_at.to_formatted_s(:long) %>
+  <th><%= link_to post_row.title, post_url(post_row) %></th>
+  <td>
+    <%= link_to 'Edit Post', edit_post_url(post_row) %>
+    <%= button_to 'Delete Post', post_url(post_row), :method => :delete %>
+  </td>
+</tr>

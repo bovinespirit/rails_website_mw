@@ -1,0 +1,8 @@
+<tr id="row_<%= tag_row.id %>">
+  <td><%= link_to tag_row.name, formatted_tag_url(tag_row, :html) %></td>
+  <td><%= tag_row.count %></td>
+  <td>
+    <%= link_to "Edit", formatted_edit_tag_url(tag_row, :html) %> | 
+    <%= link_to "Delete", formatted_tag_url(tag_row, :html), :confirm => "Delete #{tag_row.name}?", :method => :delete  %>
+  </td>
+</tr>

@@ -1,0 +1,9 @@
+<% form_tag do -%>
+<dl>
+  <dt>Name</dt>
+  <dd><%= text_field('user', 'name') %></dd>
+  <dt>Password</dt>
+  <dd><%= password_field('user', 'password') %></dd>
+  <dt><input type="submit" value="Login" /></dt>
+</dl>
+<% end -%>

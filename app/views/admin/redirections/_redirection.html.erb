@@ -1,0 +1,15 @@
+<tr id="redirection_<%= redirection.id %>">
+  <td><%= h redirection.uri %></td>
+  <% wb = Webpage.from(redirection.targetable) -%>
+  <% if !wb.nil? -%>
+    <td><%= link_to "#{redirection.targetable_type} - #{wb.title}", wb.uri %></td>
+  <% else -%>
+    <td>No direction</td>
+  <% end %>
+  <td><%= link_to 'Show', redirection_path(redirection) %></td>
+  <td><%= link_to 'Edit', edit_redirection_path(redirection) %></td>
+  <td><%= link_to_remote 'Destroy', { :url => redirection_url(redirection), 
+                                      :confirm => "Delete #{redirection.uri}?", 
+                                      :method => :delete },
+                                    { :href => redirection_url(redirection) } %></td>
+</tr>

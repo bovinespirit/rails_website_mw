@@ -1,0 +1,12 @@
+<tr id="row_<%= contact_row.id %>">
+  <td><%= link_to contact_row.fn, contact_url(contact_row) %></td>
+  <td><%= contact_row.method_name %></td>
+  <td><%= contact_row.organisation %></td>
+  <td><%= contact_row.xfn %></td>
+  <td><%= link_to contact_row.href, contact_row.href %></td>
+  <td><%= contact_row.updated_at %></td>
+  <td>
+    <%= link_to "Edit", edit_contact_url(contact_row) %> | 
+    <%= link_to "Delete", contact_url(contact_row), :confirm => "Delete #{contact_row.fn}?", :method => :delete  %>
+  </td>
+</tr>

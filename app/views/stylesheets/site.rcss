@@ -1,0 +1,763 @@
+/*
+ *  Main site CSS file
+ *  Copyright (C) Matthew West 2002-2008
+ */
+
+<% menu_background = dark_brown -%>
+<% menu_border = light_brown -%>
+<% frame_background = dark_teal -%>
+<% frame_header = light_teal -%>
+<% frame_border = light_brown -%>
+
+html {
+    background: <%= css_background %> none repeat scroll 0 0;
+}
+body {
+    color: <%= css_text %>;
+    font-family: arial, sans-serif;
+    margin: 0;
+    padding-top: 80px;
+    padding-bottom: auto;
+}
+#main {
+    background: <%= css_background %> url(/images/floralspace.png) repeat-y scroll top right;
+	width: 1015px;
+	margin: 0 auto;
+	padding: 0 0 0 185px;
+	}
+#main_content {
+    background: <%= main_background %> url(/images/bk-vdb-10h.png) repeat-y scroll top left;
+    padding-top: 0.2em;
+    padding-left: 15px;
+    width: 800px;
+	}
+a, div, img, span, p
+pre, code,
+table, td, tr, th,
+ul, li,
+dd, dl, dt,
+form,
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+}
+
+p {
+    margin: 0.5em 2em;
+    text-indent: 1em;
+}
+
+a {
+    display: inline;
+    text-decoration: none;
+}
+a:link, a:visited, a:active {
+    color: <%= link %>;
+    background-color: transparent;
+}
+a:hover {
+    background-color: <%= link_background %>;
+}
+a.plain:hover {
+    background-color: transparent;
+}
+
+img {
+    background-color: transparent;
+}
+
+span {
+    height: auto;
+    position: static;
+    width: auto;
+}
+
+.error {
+    font-style: italic;
+    color: red;
+}
+div.fieldWithErrors {
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-style: solid;
+    border-color: red;
+    padding: 1px;
+}
+<%#
+  # Headings
+  %>
+h1 {
+    font-size: 220%;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+    margin: 0.2em 10% 0.5em 10%;
+    padding: 0.2em;
+    color: <%= css_header %>;
+    border-bottom: dashed 1px <%= light_teal %>;
+}
+h2 {
+    color: <%= css_header %>;
+    text-align: center;
+    font-weight: bold;
+    width: 80%;
+    font-size: 150%;
+    margin: 0.5em 10%;
+    border-width: 0;
+}
+h3 {
+    color: <%= css_header %>;
+    margin: 0.2em 0.5em;
+    font-size: 120%;
+    font-weight: bold;
+}
+<%#
+  # Blog
+  %>
+.post {
+    margin: 0.2em 1em 0.2em 0.2em;
+    padding: 0.3em;
+    overflow: auto;
+}
+.post h2 {
+    text-align: left;
+    margin: 0;
+    padding: 0em;
+    width: 100%;
+    color: <%= css_header %>;
+    border-bottom: solid 1px <%= light_teal %>;
+    }
+.post h4,
+.posts dd {
+    margin: 0;
+    padding: 0.1em;
+    color: <%= light_text %>;
+    font-weight: normal;
+    font-size: 80%;
+}
+.post h4.datetime {
+    text-align: left;
+    }
+.post h4.datetime abbr {
+    color: <%= light_text %>;
+    font-weight: normal;
+    text-decoration: none;
+    border-width: 0;
+    }
+.post h4.tags {
+    margin-right: 1em;
+    text-align: right;
+    }
+dl.posts {
+    margin-left: 2em;
+}
+dl.posts dd {
+    margin-left: 0.5em;
+    }
+
+<%#
+  # Pagination
+  %>
+.pagination {
+	margin: 0.1em;
+}
+.pagination a,
+.pagination span {
+    margin: 0.1em;
+    padding: 0.1em 0.2em;
+    border: 1px solid <%= light_teal %>;
+    background-color: <%= dark_teal %>;
+}
+.pagination a {
+}
+.pagination a:hover,
+.pagination a:active {
+    background-color: <%= link_background %>;
+}
+.pagination span.current { }
+.pagination span.disabled {
+    color: <%= light_brown %>;
+}
+<%#
+  # Tags
+  %>
+.tag-cloud {
+  background-color: <%= frame_background %>;
+  width: 12em;
+  margin: 1em;
+  border: solid 1px <%= frame_border %>;
+  padding: 0em;
+}
+<%#
+  #  Photos
+  %>
+.photo {
+    margin: 0 auto;
+    }
+.photo li {
+    margin-top: 0.3em;
+}
+.photo img {
+    border: solid 1px <%= light_grey %>;
+    background-color: <%= dark_grey %>;
+    padding: 1px;
+    margin: 0;
+}
+.caption ul {
+  list-style-image: none;
+  list-style-type: none;
+  list-style-position: outside;
+}
+.photo .meta-info {
+  font-size: 80%;
+  padding: 0;
+  margin-top: 0.1em;
+  color: <%= light_text %>;
+  }
+.photo .meta-info li {
+  padding: 1px;
+  margin: 0.2em 0em;
+  }    
+.photo .text {
+    margin-top: 1em;
+    }
+.photo p,
+.caption p {
+    margin: 0.1em 0;
+    text-indent: 0;
+    }
+.photo strong,
+.caption strong {
+    margin-top: 0.5em;
+    font-weight: bold;
+    font-size: 100%;
+    text-decoration: none;
+    font-style: normal;
+    }
+.photo em,
+.caption em {
+    margin-top: 0.5em;
+    font-weight: normal;
+    font-size: 100%;
+    text-decoration: none;
+    font-style: italic;
+    }
+.left-border {
+    padding-left: 0.3em;
+    margin-left: 0.3em;
+    }
+
+<%# 
+  #  Carousel
+  %>
+<% thumbbox_width = (Photo.thumb_size('xsmall')[0] * 2) + 2 + 6 -%>
+.photo ul.meta-info {
+  width: <%= thumbbox_width + 4 %>px;
+}
+li.thumbs {
+    padding: 1px;
+    border: solid 1px <%= dark_grey %>;
+    margin-bottom: 0.5em;
+    background-color: black;
+}
+div#thumbbox {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    width: <%= thumbbox_width %>px;
+    height: <%= (Photo.thumb_size('xsmall')[0]) + 2 + 6 %>px;
+}
+#thumbbox a {
+    padding: 1px;
+    border: solid 1px <%= link %>;
+    margin: 1px;
+    display: block;
+    }
+#thumbbox a:hover {
+    border-color: <%= link_background %>;
+    }
+#thumbbox img {
+    border-width: 0;
+    padding: 0;
+    margin: 0;
+    }
+    
+<%# Set margins around xxsmall thumbnails so that they take up the same space %>
+<% short_margin = ((Photo.thumb_size('xsmall')[0] - Photo.thumb_size('xsmall')[1]) / 2).to_s -%>
+#thumbbox .vertical {
+    margin: 0px <%= short_margin %>px;
+}
+#thumbbox .horizontal {
+    margin: <%= short_margin %>px 0px;
+    }
+
+#thumbnav {
+    height: 1.2em;
+    }
+<% thumbnav_div_width = thumbbox_width / 4 -%>
+#thumbnav div,
+#thumbnav a {
+    position: relative;
+    top: 0;
+    width: <%= thumbnav_div_width %>px;
+    height: 1em;
+    background-color: transparent;
+    padding: 0.1em 0px;
+    }
+#thumbnav a {
+    display: block;
+    }
+#thumbnav .on {
+    color: <%= link %>;
+    cursor: pointer;
+}
+#thumbnav .on:hover,
+#thumbnav a:hover {
+    background-color: <%= link_background %>;
+    }
+#thumbnav .prev {
+    left: 0px;
+    }
+#thumbnav .ce {
+    left: <%= thumbnav_div_width %>px;
+    text-align: center;
+    width: <%= thumbnav_div_width * 2 %>px;
+    top: -1.1em;
+    }
+#thumbnav .next {
+    left: <%= thumbnav_div_width * 3 %>px;
+    text-align: right;
+    top: -2.2em;
+    }
+<%#
+  #  Thumb Cards
+  %>
+<% Photo::THUMB_SIZES.each do |tsk, tsv| -%>
+  <% thumbcard_width = (Photo.thumb_size(tsk)[0]) + 4 -%>  
+  <% thumbimg_margin = ((Photo.thumb_size(tsk)[0] - Photo.thumb_size(tsk)[1]) / 2).to_s -%>
+  div.thumb-card-<%= tsk %> {
+    padding: 2px;
+    border: solid 1px <%= light_teal %>;
+    -moz-border-radius: <%= thumbimg_margin %>px;
+    -webkit-border-radius: <%= thumbimg_margin %>px;
+    background-color: <%= dark_blue %>;
+    margin: 2px;
+    width: <%= thumbcard_width %>px;
+    }
+  .thumb-card-<%= tsk %> img.vertical {
+    margin: 0px <%= thumbimg_margin %>px;
+    }
+  .thumb-card-<%= tsk %> img.horizontal {
+    margin: <%= thumbimg_margin %>px 0px;
+    }
+  .thumb-card-<%= tsk %> img {
+    border: solid 1px <%= link %>;
+    padding: 1px;
+    background-color: <%= dark_grey %>;
+    }
+  .thumb-card-<%= tsk %> h3 {
+    width: <%= thumbcard_width - 10 %>px;
+    text-align: center;
+    height: 2.5em;
+    margin: 0;
+    padding: 0.5em;
+    }
+  .thumb-card-<%= tsk %> a {
+    padding: 0;
+    margin: 0;
+    }
+  .thumb-card-<%= tsk %> a:hover {
+    background-color: transparent;
+    }
+  .thumb-card-<%= tsk %> img:hover {
+    border-color: <%= link_background %>;
+    background-color: <%= link_background %>;
+    }
+  div.round-border-<%= tsk %> {
+    border: solid 1px <%= light_teal %>;
+    -moz-border-radius: <%= (thumbimg_margin.to_i + 2).to_s %>px;
+    -webkit-border-radius: <%= (thumbimg_margin.to_i + 2).to_s %>px;
+    margin: 1px;
+    padding: 1px;    
+    }
+<% end -%>
+
+<%#
+  # Captioned images
+  %>
+.caption {
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  margin: 2px;
+  padding: 1px;
+  display: block;
+  width: auto;
+  color: black;
+}
+div.caption { border-color: black; }
+a.caption { border-color: <%= link %>; }
+a.caption:hover {
+  border-color: <%= link_background %>;
+  }
+.caption img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+.caption div {
+  position: absolute;
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+  background-color: <%= beam_blue %>;
+  color: black;
+  display: none;
+}
+.caption:hover div {
+  display: block;
+}
+.caption h3,
+.caption ul,
+.caption p {
+  margin: 0.1em 0.2em;
+  padding: 0;
+  }
+.caption li {
+  padding: 0;
+  margin: 0;
+  }
+.caption h3 { 
+  text-align: center;
+  width: 100%;
+}
+.caption .date {
+  text-align: right;
+  display: block;
+  font-size: 80%;
+  margin: 0.12em 0.25em;
+  padding: 0;
+}
+<%#
+  #  Lists
+  %>
+dl { margin: 0.5em 3em; }
+dt { font-weight: bold;
+     color: <%= css_header %>;
+	 }
+dt, dd { margin-top: 0.2em; }
+ul {
+  list-style-image: none;
+  list-style-type: none;
+  list-style-position: outside;
+}
+ul {
+  list-style-position: inside;
+  }
+<%#                                              %>
+<%#  Floating sidebars                           %>
+<%#  float classes line up next to one another.  %>
+<%#                                              %>
+.sidebarr {
+  float: right;
+  clear: right;
+}
+.sidebarl {
+  float: left;
+  clear: left;
+}
+.float {
+  float: left;
+}
+.floatr {
+  float: right;
+  }
+.clear {
+  clear: left;
+}
+.auto_width {
+  width: auto;
+  }
+.centre {
+    margin: 0 auto;
+    }
+img.border,
+div.border {
+  border: solid 1px #dddddd;
+}
+img.border {
+  background-color: #999999;
+  margin: 12px;
+  padding: 1px;
+  }
+div.border {
+  margin: 0.5em;
+  padding: 5px;
+  overflow: auto;
+  }
+.noborder {
+  margin: 0.5em;
+}
+.minor {
+  font-size: 80%;
+  }
+<%#
+  # Frames
+  %>
+.frame { 
+  background-color: <%= frame_background %>;
+  width: 12em;
+  margin: 1em;
+  border: solid 1px <%= frame_border %>;
+}
+dl.frame dd,  /* Selectors removed, pointless CSS added to appease IE6 */
+dl.frame dt,
+div.frame a,
+div.frame div,
+div.frame h3,
+div.frame h4 {
+  margin: 0;
+  width: 11.5em;
+  border-width: 0px;
+  padding: 0.1em 0.25em;
+}
+dl.frame dd select,
+dl.frame dt select { 
+  width: 80%;
+  margin: 0 10%;
+  text-indent: 0;
+}
+dl.frame dd,
+dl.frame dt,
+div.frame a {
+  background-color: transparent;
+}
+dl.frame dd {
+  text-indent: 1em;
+}
+dl.frame dt.header,
+div.frame h3 {
+  background-color: <%= frame_header %>;
+  text-align: center;
+  font-size: 120%;
+  width: 10em;
+  padding: 0.1em 0em;
+  margin: 0 0;
+}
+.frame a {
+  display: block;
+  text-decoration: none;
+}
+div.frame a:hover {
+  background-color: <%= link_background %>;
+}
+<%#
+  #  Tables
+  %>
+table {
+  background-color: transparent;
+  border: solid 1px <%= frame_border %>;
+  border-spacing: 1px;
+  width: 90%;
+  margin: 0.5em 5%;
+}
+table td, th {
+  border: solid 1px <%= frame_border %>;
+  padding: 0.5em;
+}
+table th {
+  text-align: center;
+  font-size: 120%;
+  font-weight: bold;
+  color: <%= css_header %>;
+  background-color: <%= frame_header %>;
+}
+table td {
+  background-color: <%= frame_background %>;
+  text-align: left;
+  font-size: 100%;
+  font-weight: normal;
+}
+table h3 {
+  text-align: center;
+  width: 90%;
+  font-weight: bold;
+  font-size: 100%;
+  padding: 0;
+  margin: 0.5em 5%;
+}
+
+<%#
+  #  Code
+  %>
+code {
+  display: inline;
+  font-style: normal;
+  font-family: monospace;
+}
+code.i {
+  font-style: italic;
+}
+.pre {
+  display: block;
+  margin: 0;
+  overflow: auto;
+  width: 100%;
+}
+<%####################################################
+  #
+  # Header and Footer 
+  #
+  %>
+div#bannerhead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: url("/images/h80banner.png") repeat-x top left;
+}
+div#bannerhead.admin {
+    background-color: red;
+    background-image: none;
+}
+div#bannerhead span {
+    display: none;
+}
+
+div#footer {
+  width: 100%;
+  margin: 1em 0 0 0;
+  padding: 0.2em 0;
+  border-top: solid 1px <%= light_teal %>;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  height: 1.6em;
+  clear: both;
+}
+div#footer span {
+  margin: 0 0.5em;
+  top: 0em;
+  position: relative;
+  font-size: 80%;
+  background-color: transparent;
+  color: <%= css_text %>;
+  width: auto;
+}
+span.left {
+  float: left;
+}
+div#footer span.left {
+  color: <%= light_text %>;
+  }
+span.right {
+  float: right;
+}
+div#footer a {
+  text-decoration: none;
+}
+<%####################################################
+  #
+  # Menus
+  #
+  %>
+#menu {
+  font-size: 80%;
+  width: 11em;
+  position: relative;
+  left: -11em;
+  top: 1em;
+  height: 0;
+}
+#menu ul {
+  background: <%= menu_background %>;
+  padding: 3px;
+  border: dashed 1px <%= menu_border %>;
+  list-style-image: none;
+  list-style-type: none;
+  list-style-position: outside;
+  width: 10em;
+  margin-bottom: 0.5em;
+}
+#menu ul.sub {
+  display: none;
+  position: absolute;
+  border-width: 1px;
+  left: 5em;
+  z-index: 10;
+}
+#menu li {
+  background-color: transparent;
+  padding: 0em 0.25em;
+  margin: 0.1em 0;
+  width: auto;
+  height: auto;
+  border-width: 0;
+}
+#menu li.menu, li.section {
+  font-weight: bold;
+  text-align: left;
+}
+#menu ul.section {
+  margin: 0;
+  padding-left: 1px;
+  padding-right: 0;
+  width: auto;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-style: solid;
+  border-color: <%= menu_border %>;
+}
+#menu li.page {
+  font-weight: normal;
+  text-align: right;
+}
+#menu li a {
+    display: block;
+    padding: 0;
+<%#  width: 9.0em; %>
+    background-color: transparent;
+    text-decoration: none;
+}
+#menu li:hover > ul {
+    display: block;
+}
+#menu a:hover {
+    background-color: <%= link_background %>;
+}
+#menu a.plain:hover {
+    background-color: transparent;
+}
+<%#
+  #  Google Search
+  %>
+div#menu li.google {
+  text-align: center;
+  border: solid 2px <%= menu_border %>;
+  margin: 0.5em 0.25em;
+  padding: 0.25em;
+  display: block;
+  position: relative;
+  width: 9.5em
+  z-index: -10;
+}
+div#menu li.google:hover {
+  border-color: <%= link_background %>;
+}
+div#menu li.google div {
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+}
+div#menu li.google a {
+  background-color: <%= menu_background %>;
+  font-size: 120%;
+}
+div#menu li.google input.text { 
+  width:7em;
+}

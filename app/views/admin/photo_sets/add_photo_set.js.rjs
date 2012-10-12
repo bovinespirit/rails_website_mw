@@ -1,0 +1,11 @@
+page.replace_html 'photo_list',  :partial => 'photo_set_photo', 
+                                 :collection => @photo_set.photos, 
+                                 :locals => { :photo_set => @photo_set}
+page.replace_html 'photo_list_control', sortable_element('photo_list', 
+                                                         :url => formatted_reorder_photo_set_url(@photo_set, :js),
+                                                         :complete => visual_effect(:highlight, 'photo_list'))
+page.replace_html 'photo_pool', :partial => 'photo_pool', :object => @photo_set, :locals => { :reorder => @reorder }
+page.visual_effect :highlight, 'photo_list'
+page.visual_effect :highlight, 'photo_pool'
+
+                                                         

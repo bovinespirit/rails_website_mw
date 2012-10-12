@@ -1,0 +1,75 @@
+<% content_for 'style' do -%>
+.vcard {
+  margin-left: 4em;
+  }
+<% end -%>
+
+<% if !@email.nil? and !@email.errors.empty? -%>
+<p class="error">
+  There is a problem with the email.
+</p>
+<% end -%>
+<p>
+  I have removed my e-mail address from this website to discourage spammers.  If you would like to contact me
+  you can either fill in this form(don't forget to include your e-mail address) or give me a ring.  I will no
+  longer respond to the old e-mail address (www@...).
+</p>
+<div class="vcard">
+  <dl class="float">
+    <dd>
+      <a class="url fn" href="http://www.matthewwest.co.uk">Matthew West</a>
+    </dd>
+    <dd class="adr">
+      <span class="street-address">Flat 108, <br />417 Wick Lane, </span><br />
+      <span class="locality">LONDON</span><br />
+      <span class="postal-code">E3 2JJ</span>
+    </dd>
+    <dd class="tel">
+      <abbr class="type" title="cell">mobile:</abbr>
+      <span class="value">+447866 372222</span>
+    </dd>
+  </dl>
+<%#  <dl class="float">
+  #  <dd>
+  #    <a class="url" rel="me" href="http://www.last.fm/user/bovinespirit">Last.fm profile</a>
+  #  </dd>
+  #  <dd>
+  #    <a class="url" rel="me" href="http://slashdot.org/~BovineSpirit">Slashdot profile</a>
+  #  </dd>
+  #  <dd>
+  #    <a class="url" rel="me" href="http:////www.blue-room.org.uk/index.php?showuser=5671">Blue Room</a> Lighting Forum
+  #  </dd>
+  #</dl>
+  %>
+</div>
+<p class="clear">
+  If you are trying to contact a USA based singer/songwriter then I am not the Matthew West you are looking
+  for.  If you wish to email him click <a href="http://www.matthewwest.com" title="Singer/Songwriter">here</a>.
+</p>
+<% if !@email.nil? -%>
+  <% form_tag :action => 'send_email' do -%>
+  <dl>
+    <dt>Subject</dt>
+    <%= error_def(@email, 'subject') -%>
+    <dd>
+      <%= text_field "email", "subject", {"size" => 70, "maxlength" => 255, "title" => "Enter the subject of your email here."} %>
+    </dd>
+    <dt>Your email address</dt>  
+    <%= error_def(@email, 'address') -%>
+    <dd>
+      <%= text_field "email", "address", {'size' => 70, 'maxlength' => 255, 'title' => 'Enter your email address here if you would like a reply.'} %>
+    </dd>
+    <dd>
+    <%= error_def(@email, 'message') -%>
+      <%= text_area "email", "message", {'cols' => 70, 'rows' => 10, 'title' => "Write your message here."} %>
+   </dd>
+    <dd>
+      <%= submit_tag 'Send mail' %>
+    </dd>
+  </dl>
+  <% end -%>
+<% else -%>
+  <h3>
+    Email is not currently working, sorry.
+  </h3>
+<% end -%>

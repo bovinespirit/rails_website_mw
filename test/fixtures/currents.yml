@@ -1,0 +1,31 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: currents
+#
+#  id         :integer       not null, primary key
+#  lantern_id :integer       not null
+#  voltage    :integer       default(230), not null
+#  current    :float         not null
+#  frequency  :integer       default(50), not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+mac500_230V:
+    id: 1
+    lantern_id: 1
+    voltage: 230
+    current: 3.4
+    frequency: 50
+mac500_208V_50Hz:
+    id: 2
+    lantern_id: 1
+    voltage: 208
+    current: 4.3
+    frequency: 50
+mac500_208V_60Hz:
+    id: 3
+    lantern_id: 1
+    voltage: 208
+    current: 4.2
+    frequency: 60

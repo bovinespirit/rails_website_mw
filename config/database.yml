@@ -1,0 +1,31 @@
+# PostgreSQL versions 7.4 - 8.1
+
+development:
+  adapter: postgresql
+  database: Website_dev
+  username:
+  password:
+  encoding: UTF8
+
+devcache:
+  adapter: postgresql
+  database: Website_dev
+  username:
+  password:
+  encoding: UTF8
+
+test:
+  adapter: postgresql
+  database: Website_test
+  username:
+  password:
+  encoding: UTF8
+
+production:
+  adapter: postgresql
+  database: website
+  username:
+  password:
+  encoding: UTF8
+  port: 5476
+  host: localhost

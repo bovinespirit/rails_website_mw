@@ -1,0 +1,8 @@
+<tr>
+  <th><%= link_to photo_set.title, formatted_photo_set_url(photo_set, :html) %></th>
+  <td><%= photo_set.photos.count %></td>
+  <td>
+    <%= link_to 'Edit PhotoSet', formatted_edit_photo_set_url(photo_set, :html) %>
+    <%= button_to 'Delete PhotoSet', formatted_photo_set_url(photo_set, :html), :method => :delete %>
+  </td>
+</tr>

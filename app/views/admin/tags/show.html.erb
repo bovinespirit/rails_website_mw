@@ -1,0 +1,11 @@
+<p>
+  <%= link_to "Tags index", tags_url %> |
+  <%= link_to "Edit tag", edit_tag_url(@tag) %>
+</p>
+<dl>
+  <dt>Name:</dt>
+  <dd><%= @tag.name %></dd>
+  <dt>Count:</dt>
+  <dd><%= @tag.taggings.count %></dd>
+</dl>
+<%= render :partial => 'tag/tag', :object => @tag %>

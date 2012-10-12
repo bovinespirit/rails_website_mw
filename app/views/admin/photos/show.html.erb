@@ -1,0 +1,20 @@
+<% @webpage.title = "Show Photo - #{@photo.title}" -%>
+
+<p>
+  <%= link_to 'Photo index', formatted_photos_url({:format => :html}) %> | 
+  <%= link_to 'New photo', formatted_new_photo_url(:format => :html) %> |
+  <%= link_to 'Edit photo', formatted_edit_photo_url(@photo, :html) %> |
+  <%= link_to 'Edit thumbnail', formatted_edit_thumbnail_photo_url(@photo, :html) %>
+</p>
+
+<p>
+  Photo Sets:
+  <% psa = @photo.photo_sets.collect { |photo_set| link_to photo_set.title, formatted_photo_set_url(photo_set, :html) } -%> 
+  <%= psa.join(' | ') -%>
+</p>
+
+<%= thumb_tag(@photo, 'medium', :class => 'float border') %>
+
+<div class="float">
+  <%= render :partial => 'photo/photo', :object => @photo, :locals => { :photo_set => nil } %>
+</div>

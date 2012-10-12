@@ -1,0 +1,111 @@
+<p>
+  <label for="title">Title</label>
+  <%= text_field('photo', 'title') %>
+</p>
+<fieldset class="sidebarr" style="width: 20em;">
+  <legend>
+    <%= file_field 'photo', 'exif_image' %> 
+  </legend>
+  <p>
+    <label for="created_on">Creation time</label>
+    <%= date_select('photo', 'created_on', :order => [:day, :month, :year], :start_year => 2001) %>
+  </p>
+  <p>
+    <label for="vague_created_date">Vague Date</label>
+    <%= check_box('photo', 'vague_created_date') %>
+  </p>
+  <p>
+    <label for="camera_model">Camera</label>
+    <%= text_field('photo', 'camera_model') %>
+  </p>
+  <p>
+    <label for="aperture">Aperture</label>
+    <%= text_field('photo', 'aperture') %>
+  </p>
+  <p>
+    <label for="exposure">Exposure</label>
+    <%= text_field('photo', 'exposure') %>
+  </p>
+  <p>
+    <label for="focal_length">Focal Length</label>
+    <%= text_field('photo', 'focal_length') %>
+  </p>
+  <p>
+    <label for="metering">Metering</label>
+    <%= text_field('photo', 'metering') %>
+  </p>
+  <p>
+    <label for="processed_with_gimp">Gimped</label>
+    <%= check_box('photo', 'processed_with_gimp') %>
+  </p>
+</fieldset>
+
+<fieldset style="width: 20em;height: 20em;overflow: scroll;" class="sidebarr">
+  <legend>Photo Sets</legend>
+  <ul class="nobullet">
+    <% PhotoSet.find(:all, :order => 'title').each do |photo_set| -%>
+      <li>
+        <%= check_box_tag "photo_sets[#{photo_set.id}]", 1,
+                          ((!PhotosPhotoSet.find_by_photo_id_and_photo_set_id(@photo.id, photo_set.id).nil?) or 
+                           (photo_set.id == @photo_set_id)) %>
+        <label for="<%= "photo_sets[#{photo_set.id}]" %>"><%= photo_set.title %></label>
+      </li>
+    <% end -%>
+  </ul>
+</fieldset>
+
+<p>
+  <label for="slug">Slug</label>
+  <%= text_field('photo', 'slug') %>
+</p>
+<p>
+  <label for="tag_list">Tag List</label>
+  <%= text_field('photo', 'tag_list') %>
+</p>
+<p>
+  <label for="description">Description</label>
+  <%= text_area('photo', 'description', :rows => 5) %>
+</p>
+
+<p>
+  <label for="text">Text</label>
+  <%= text_area('photo', 'text', :rows => 10) %>
+</p>
+<fieldset id="text_preview" style="width: 700px;">
+  <legend>
+    <%= image_tag 'comatose/spinner.gif', :id=>'spinner', :align=>'absmiddle', :style=>'display:none;' %>
+    <%= button_to_function('Preview Text', 
+                           "EditPhotoForm.preview_text('#{preview_text_photos_url(:format => :html)}')") %>
+  </legend>
+  <div id="textdiv" class="photo">
+    Text Preview
+  </div>
+</fieldset>
+
+<p>
+  <%= link_to_function "See Images", 'EditPhotoForm.toggle_images(this)' %>
+</p>
+<p id="image_sizes">
+  <% if sz = @photo.size() -%>
+    <% sw, sh = sz -%>
+    Size: <%= "#{sw}x#{sh}" %><br />
+  <% end -%>
+  Thumbnail:&#160;
+  X : <%= @photo.thumb_x %>&#160;
+  Y : <%= @photo.thumb_y %>&#160;
+  L : <%= @photo.thumb_l %>&#160;
+  Vertical : <%= @photo.thumb_vertical %>
+</p>
+<fieldset id="photo_preview" style="width:<%= @photo.size[0] + @photo.size('medium')[0] + 56 %>px">
+  <legend>
+    <%= file_field 'photo', 'data' %>
+  </legend>
+  <% if @photo.has_data? -%>
+    <%= photo_tag(@photo, :class => 'float border') %>
+    <%= thumb_tag @photo, 'medium', :class => 'float border' %>
+    <div class="clear">&#160;</div>
+  <% end -%>
+</fieldset>
+
+<%= javascript_tag "EditPhotoForm.init('#{mode.to_s}');" %>
+   

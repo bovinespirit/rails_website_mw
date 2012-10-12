@@ -1,0 +1,188 @@
+/*
+ *  Admin CSS file
+ *  Copyright (C) Matthew West 2006 - 2008
+ */
+
+ div.adminMessage {
+  width: 80%;
+  margin: 0 10%;
+  color: <%= dark_grey %>;
+  text-align: right;
+  }
+.error {
+  color: red;
+  }
+
+ul.admin,
+table.admin {
+  border-width: 0;
+  margin: 0 5%;
+  padding: 0;
+}
+table.admin td,
+table.admin th {
+  border-width: 0;
+  padding: 0.1em;
+}
+
+<% thumb_width = (Photo.thumb_size('small')[0]) + 4 + 2 + 4 -%>  
+<% sidelrg_margin = ((Photo.thumb_size('small')[0] - Photo.thumb_size('xsmall')[1]) / 2).to_s -%>
+<% sidesm_margin = ((Photo.thumb_size('small')[0] - Photo.thumb_size('xsmall')[0]) / 2).to_s -%>
+<% toplrg_margin = ((Photo.thumb_size('xsmall')[0] + 2 - Photo.thumb_size('xsmall')[1]) / 2).to_s -%>
+<% topsm_margin = ((Photo.thumb_size('xsmall')[0] + 2 - Photo.thumb_size('xsmall')[0]) / 2).to_s -%>
+.adminphoto {
+    border: solid 1px black;
+    background-color: <%= beam_blue %>;
+    width: <%= thumb_width %>px;
+    font-size: 80%;
+    margin: 0.5em;
+    }
+.adminphoto h3 {
+    width: <%= thumb_width - 20 %>px;
+    height: 2.5em;
+    text-align: center;
+    font-size: 120%;
+    margin: 0;
+    border-width: 0;
+    padding: 0.2em 10px;
+    background-color: <%= beam_purple %>;
+    }
+.adminphoto p {
+    width:100%;
+    margin: 0;
+    border-width: 0;
+    padding: 0.1em 0.5em;
+}
+
+.adminphoto img {
+    border: solid 1px <%= light_grey %>;
+    padding: 1px;
+    background-color: <%= dark_grey %>;
+    }
+
+.adminphoto a:hover {
+    background-color: transparent;
+    }
+
+.adminphoto img:hover {
+    border-color: <%= link_background %>;
+    background-color: <%= link_background %>;
+    }
+
+.adminphoto img.vertical {
+    margin: <%= topsm_margin %>px <%= sidelrg_margin %>px;
+    }
+.adminphoto img.horizontal {
+    margin: <%= toplrg_margin %>px <%= sidesm_margin %>px;
+    }
+  
+ul.admin {
+  list-style-image: none;
+  list-style-type: none;
+  list-style-position: outside;
+}
+ul.admin form,
+ul.admin form div {
+  display: inline;
+  }
+ul.admin input {
+  display: inline;
+  }
+ul.admin li {
+  padding: 0.1em;
+  border: 1px solid black;
+  margin: 0.1em;
+  }
+form.button-to div {
+  display: inline;
+  }
+form.button-to {
+  display: inline;
+  }
+    
+form p {
+  text-indent: 0;
+  }
+
+#thumbpreview {
+  border: 1px solid black;
+  padding: 0.1em;
+  margin: 0.5em;
+  }
+#thumbpreview p {
+  font-size: 80%;
+  padding: 1px;
+  margin: 0;
+}
+
+div.photosetl {
+  float: left;
+  clear: both;
+  width: 30%;
+  }
+div.photosetl table {
+  width: auto;
+  margin: 0.5em 0;
+  padding: 0;
+  }
+div.photosetl table td {
+  padding: 2px;
+  }
+  
+div.photosetr {
+  float: left;
+  width: 70%;
+  height: 700px;
+  overflow: scroll;
+  }
+
+#photo_list {
+  list-style-image: none;
+  list-style-type: none;
+  list-style-position: outside;  
+  }
+#photo_list li {
+  width: 100%;
+  border: 1px solid black;
+  margin: 2px 0px;
+  padding: 0px;
+  }
+#photo_list p {
+  width: 30em;
+  padding: 0.1em 0.5em;
+  margin: 0;
+  display: inline;
+  }
+#photo_list img {
+  display: inline;
+  margin: 2px;
+  }
+#photo_list div {
+  width: 5em;
+  }
+  
+div.thumb_border {
+  margin: 2px;
+  border: 1px solid black;
+  padding: 1px;
+}
+
+<%#
+  # Override comatose stuff
+  # -%>
+
+#content .page-list a.page {
+    color: <%= link %>;
+    }
+#content .page-list a.page:hover {
+    background_color: <%= link_background %>;    
+}
+
+#page_body,
+#page_slug,
+#page_keywords,
+#page_title {
+    width: 100%;
+    }
+
+

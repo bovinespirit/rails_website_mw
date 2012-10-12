@@ -1,0 +1,64 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: beam_angles
+#
+#  id         :integer       not null, primary key
+#  lantern_id :integer       not null
+#  minangle   :float         not null
+#  maxangle   :float         not null
+#  optional   :boolean       
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+mac500_standard_lens:
+  id: 1
+  lantern_id: 1
+  optional: false
+  minangle: 18
+  maxangle: 18
+mac500_optional_lens:
+  id: 2
+  lantern_id: 1
+  optional: true
+  minangle: 23.5
+  maxangle: 23.5
+mac2000_lens:
+  id: 3
+  lantern_id: 2
+  optional: false
+  minangle: 10
+  maxangle: 28
+goldenscan_lens:
+  id: 4
+  lantern_id: 3
+  optional: true
+  minangle: 24
+  maxangle: 24
+mac600_lens:
+  id: 5
+  lantern_id: 4
+  optional: false
+  minangle: 25
+  maxangle: 25
+
+multi_lens1:
+  id: 51
+  lantern_id: 52
+  optional: false
+  minangle: 2
+  maxangle: 10
+
+multi_lens2:
+  id: 52
+  lantern_id: 52
+  optional: true
+  minangle: 5
+  maxangle: 50
+
+multi_lens3:
+  id: 53
+  lantern_id: 52
+  optional: true
+  minangle: 20
+  maxangle: 20

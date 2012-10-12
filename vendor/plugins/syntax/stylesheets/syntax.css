@@ -1,0 +1,23 @@
+/* Syntax highlighting */
+/* TODO: Make this pretty */
+pre.ruby { padding: 10px; width: 90%; margin-bottom: 1em; overflow: auto;
+  background-color: #111; }
+pre.ruby .normal {}
+pre.ruby .comment { color: #777; font-style: italic; }
+pre.ruby .keyword { color: #a0a1ff; font-weight: bold; }
+pre.ruby .method { color: #eee; }
+pre.ruby .class { color: #c1c042; }
+pre.ruby .module { color: #c1c042 }
+pre.ruby .punct { color: #eee;  }
+pre.ruby .symbol { color: #6681d3; }
+pre.ruby .string { color: #ad9360; }
+pre.ruby .char { color: #eee; }
+pre.ruby .ident { color: #eee; }
+pre.ruby .constant { color: #c1c042; }
+pre.ruby .regex { color: #666; }
+pre.ruby .number { color: #eee; }
+pre.ruby .attribute { color: #5bb; }
+pre.ruby .global { color: #7FB; }
+pre.ruby .expr { color: #5bb; }
+pre.ruby .escape { color: #5bb; }
+

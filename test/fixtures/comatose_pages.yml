@@ -1,0 +1,166 @@
+
+root:
+  id: 1
+  parent_id: 
+  full_path: ""
+  slug: "home-page"
+  title: "Matt West's Homepage"
+  menu_title: Index
+  body: >
+   I am currently working as a freelance lighting technician.
+   My CV is available as a "PDF file":/docs/cv.pdf. 
+   You can read more about my experience as a "lighting technician":/professional-experience, 
+   or you can look at some colourful photos. I can be contacted on 07866 372222, or by "e-mail":/email. 
+   I no longer advertise my e-mail address on this site because of spam e-mails. 
+   E-mails sent to the old address (www@...) will no longer reach me.
+  updated_on: 2006-07-02 15:13:46 -05:00
+  created_on: 2005-07-02 14:13:00 -00:00
+  author: 127.0.0.1
+  keywords: "test, cms"
+  filter_type: Textile
+  position: 1
+
+lightingdb:
+  id: 2
+  parent_id: 1
+  full_path: "lightingdb"
+  slug: lightingdb
+  title: "Lighting Database"
+  menu_title: "Lighting Database"
+  body: 
+  updated_on:
+  author: 127.0.0.1
+  keywords:
+  filter_type: Textile
+  position: 1
+
+photo_page:
+  id: 3
+  parent_id: 1
+  full_path: "photos"
+  slug: photos
+  title: "Lovely Photos"
+  menu_title: "Photos"
+  body: "Testing, testing..."
+  updated_on: 2006-07-05 12:11:40 -05:00
+  created_on: 2005-07-02 13:13:00 -00:00
+  author: "Test"
+  keywords: "test, photo"
+  filter_type: Textile
+  position: 2
+  
+duo_photo_page:
+  id: 4
+  parent_id: 3
+  full_path: "photos/duo-photo-page"
+  slug: 'duo-photo-page'
+  title: 'Collection of 2 photos'
+  menu_title: '2 photos'
+  body: "None"
+  updated_on: 2006-07-05 12:11:40 -05:00
+  created_on: 2005-07-02 14:13:00 -00:00
+  author: "Test"
+  keywords: "test, photo"
+  filter_type: Textile
+  position: 1
+    
+lots_of_photos:
+  id: 5
+  parent_id: 3
+  full_path: "photos/lots-of-photos"
+  slug: 'lots-of-photos'
+  title: 'Collection of Photos'
+  menu_title: 'Many Photos'
+  body: "{{ photoset.for_this_page | thumb_cards }}"
+  updated_on: 2006-07-06 12:11:40 -05:00
+  created_on: 2005-07-02 14:13:00 -00:00
+  author: "Test"
+  keywords: "test, photo"
+  filter_type: Textile
+  position: 2
+  
+empty_page:
+  id: 6
+  parent_id: 1
+  full_path: "empty"
+  slug: 'empty'
+  title: 'Page with no children'
+  menu_title: 'Empty'
+  body: "text"
+  updated_on: 2006-07-06 12:11:40 -05:00
+  created_on: 2005-07-02 14:13:00 -00:00
+  author: "Test"
+  keywords: "test, photo"
+  filter_type: Textile
+  position: 3
+  
+staging_page:
+  id: 8
+  parent_id: 1
+  full_path: "new-page"
+  slug: "new-page"
+  title: "The New Page"
+  body: "A _new_ page! How *exciting*!"
+  updated_on: 2006-08-06 12:11:40 -05:00
+  created_on: 2005-07-02 14:13:00 -00:00
+  author: "Test"
+  keywords: "staging"
+  filter_type: Textile
+  position: 4
+
+admin_page:
+  id: 7
+  parent_id: 1
+  full_path: "admin"
+  slug: "admin"
+  title: "Administrative Pages"
+  body: ""
+  updated_on: 2006-08-06 12:11:40 -05:00
+  created_on: 2005-07-02 14:13:00 -00:00
+  author: "Test"
+  keywords: "admin"
+  filter_type: Textile
+  position: 6
+  
+lonely_photo_page:
+  id: 9
+  parent_id: 3
+  full_path: "lonely-photo"
+  slug: "lonely-photo"
+  title: "Lonely Photo Page"
+  body: "{{ photoset.for_this_page | thumb_cards }}"
+  updated_on: 2006-07-06 12:11:40 -05:00
+  created_on: 2005-07-02 14:13:00 -00:00
+  author: "Test"
+  keywords: "test, photo"
+  filter_type: Textile
+  position: 4
+  
+textile_page:
+  id: 10
+  parent_id: 1
+  full_path: "textile-test"
+  slug: "textile"
+  title: "Textile Work Out"
+  menu_title: "Textile Test"
+  body: | 
+         <notextile>
+         h6. Heading6
+         </notextile>
+         <div id="testdiv">
+         * Item1
+         * Item2
+         * Item3
+         
+         </div>
+         {{ 1 | captioned_thumb: 'large' }}
+
+  updated_on: 2006-07-06 12:11:40 -05:00
+  created_on: 2005-07-02 14:13:00 -00:00
+  author: "Test"
+  keywords: "test"
+  filter_type: Textile
+  position: 5
+  
+    
+  

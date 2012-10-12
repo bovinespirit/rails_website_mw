@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: contacts
+#
+#  id           :integer       not null, primary key
+#  updated_at   :datetime      
+#  method_name  :string(255)   
+#  fn           :string(255)   
+#  organisation :boolean       
+#  xfn          :string(255)   
+#  href         :string(255)   
+#
+
+# Contacts
+
+starlight:
+  id: 1
+  method_name: "starlight"
+  href: "http://www.starlight-design.co.uk/"
+  fn: "Starlight Design"
+  updated_at: <%= 1.week.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  organisation: true
+
+jon:
+  id: 2
+  method_name: "blondie"
+  href: "http://www.jonhodges.com/"
+  fn: "Jon Hodges"
+  updated_at: <%= 1.month.ago.strftime("%Y-%m-%d %H:%M:%S") %>
+  organisation: false
+
+

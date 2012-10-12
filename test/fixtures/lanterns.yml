@@ -1,0 +1,55 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: lanterns
+#
+#  id              :integer       not null, primary key
+#  name            :string(255)   default("NEW LANTERN"), not null
+#  weight          :float         
+#  lantern_type_id :integer       default(1), not null
+#  manufacturer_id :integer       
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+mac500_lantern:
+  id: 1
+  manufacturer_id: 1
+  name: Mac 500
+  weight: 33
+  lantern_type_id: 1
+mac2000_lantern:
+  id: 2
+  manufacturer_id: 1
+  name: Mac 2000 Profile
+  weight: 47
+  lantern_type_id: 1
+goldenscan_lantern:
+  id: 3
+  name: Golden Scan HPE
+  manufacturer_id: 2
+  weight: 42
+  lantern_type_id: 1
+mac600_lantern:
+  id: 4
+  name: Mac 600
+  manufacturer_id: 1
+  weight: 32
+  lantern_type_id: 2
+pro918_lantern:
+  id: 5
+  name: Pro 918
+  manufacturer_id: 1
+  weight: 35
+  lantern_type_id: 1
+noinfo_lantern:
+  id: 51
+  name: "No Info"
+  manufacturer_id: 51
+  weight: 50
+  lantern_type_id: 51
+multi_lens_lantern:
+  id: 52
+  name: Multi Zoom
+  manufacturer_id: 51
+  weight: 50
+  lantern_type_id: 51

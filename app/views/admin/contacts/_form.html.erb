@@ -1,0 +1,18 @@
+<dl>
+  <dt><label for="contact_fn">fn</label></dt>
+  <dd><%= form.text_field :fn %></dd>
+  
+  <dt><label for="contact_method">Method Name</label></dt>
+  <dd><%= form.text_field :method_name %></dd>
+
+  <dt><label for="contact_organisation">Organisation?</label></dt>
+  <dd><%= form.check_box :organisation %></dd>
+  
+  <dt><label for="contact_xfn">xfn</label> <%= link_to 'Info', 'http://www.gmpg.org/xfn/11' %></dt>
+  <dd><%= form.text_field :xfn %></dd>
+
+  <dt><label for="contact_href">href</label></dt>
+  <dd><%= form.text_field :href %></dd>
+
+</dl>
+  

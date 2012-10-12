@@ -1,0 +1,14 @@
+<% @webpage.title = "New Contact" %>
+
+<%= error_messages_for 'contact' %>
+
+<% form_for(:contact, :url => contacts_url) do |f| %>
+  <%= render(:partial => 'form', :locals => { :form => f }) %>
+  <p>
+    <%= submit_tag 'Create' %>
+  <p>
+<% end -%>
+
+<p>
+  <%= link_to 'Back to Contact index', contacts_url %>
+</p>

@@ -1,0 +1,22 @@
+
+gwlan1:
+  gobo_wheel_id: 1
+  lantern_id: 1
+gwlan2:
+  gobo_wheel_id: 2
+  lantern_id: 1
+gwlan3:
+  gobo_wheel_id: 1
+  lantern_id: 5
+gwlan4:
+  gobo_wheel_id: 2
+  lantern_id: 5
+gwlan5:
+  gobo_wheel_id: 3
+  lantern_id: 2
+gwlan6:
+  gobo_wheel_id: 4
+  lantern_id: 2
+gwlan7:
+  gobo_wheel_id: 5
+  lantern_id: 2

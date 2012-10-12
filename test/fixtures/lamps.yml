@@ -1,0 +1,34 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: lamps
+#
+#  id              :integer       not null, primary key
+#  name            :string(255)   default(""), not null
+#  power           :integer       default(0), not null
+#  life            :integer       
+#  temp            :integer       
+#  manufacturer_id :integer       
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+hsr575_lamp:
+  id: 1
+  name: HSR 575/2
+  power: 575
+  life: 1000
+  temp: 6000
+  manufacturer_id: 6
+msr575_lamp:
+  id: 2
+  name: MSR 575/2
+  power: 575
+  life: 750
+  temp: 6100
+  manufacturer_id: 7
+hmi1200_lamp:
+  id: 3
+  name: HMI 1200 W/GS
+  manufacturer_id: 6
+  power: 1200
+  life: 5600

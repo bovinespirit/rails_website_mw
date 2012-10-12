@@ -1,0 +1,22 @@
+<%# object => photo_set -%>
+<%# reorder => reorder -%>
+
+  <div class="float adminphoto" id="add_photo_set_form_div">
+    <% form_remote_tag(:url => formatted_add_photo_set_photo_set_url(photo_pool, :html)) do -%>
+      <h3>Add Photo Set</h3>
+      <p>
+        <%= select_tag 'photo_set_id', 
+                       options_for_select(PhotoSet.find(:all, 
+                                                        :order => 'title').collect { |ps| [ps.title, ps.id] }) %>
+      </p>
+      <p>
+        <label for="reorder">Reorder</label>
+        <%= check_box_tag 'reorder', '1', reorder %>
+      </p>
+      <p>
+        <%= submit_tag "Add" %>
+      </p>
+    <% end -%>
+  </div>
+  <%= render :partial => 'admin/photos/photo', :collection => Photo.find_all_but_photo_set(photo_pool), 
+             :locals => { :allow_edit => false, :show_dates => false, :photo_set => photo_pool } %>

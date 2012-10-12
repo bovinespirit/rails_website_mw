@@ -1,0 +1,17 @@
+<% @webpage.title = "Post : #{@post.title}" -%>
+
+<p>
+  <%= link_to "Posts index", posts_url %> |
+  <%= link_to "Edit post", edit_post_url(@post) %>
+</p>
+
+<dl>
+  <dt>Updated:</dt>
+  <dd><%= @post.updated_at.to_formatted_s(:long) %></dd>
+  <dt>Version:</dt>
+  <dd><%= @post.version %></dd>
+  <dt>Staging:</dt>
+  <dd><%= @post.staging %></dd>
+</dl>
+
+<%= render :partial => 'post/post', :object => @post %>

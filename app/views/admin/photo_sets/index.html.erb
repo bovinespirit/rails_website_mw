@@ -1,0 +1,15 @@
+
+<p>
+  <%= link_to 'Admin Index', :controller => 'admin/admin', :action => 'index' %> | 
+  <%= link_to 'New Photo Set', :action => 'new' %>
+</p>
+
+<table>
+  <tr>
+    <th width="40em">Title</th>
+    <th width="5em">Photo Count</th>
+    <th>&#160;</th>
+  </tr>
+  
+  <%= render :partial => 'photo_set', :collection => @photo_sets %>
+</table>

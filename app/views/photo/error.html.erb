@@ -1,0 +1,11 @@
+<% @webpage = Webpage.create("photo/404") %>
+<% content_for 'head' do -%>
+  <meta name="robots" content="nofollow, noindex" />
+<% end -%>
+<h2>
+  Sorry, that photo does not exist
+</h2>
+<p>
+  The requested photo<%= " (#{params[:slug]})" if params[:slug] %> is not present in the database.  Maybe you typed the link in wrong, or perhaps I did.  Go back to 
+  <%= link_to 'photos', comatose_root_url(:page => 'photos') %> to see an index of available photos.
+</p>

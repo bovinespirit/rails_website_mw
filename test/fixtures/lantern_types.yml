@@ -1,0 +1,19 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: lantern_types
+#
+#  id   :integer       not null, primary key
+#  name :string(255)   default(""), not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+moving_head:
+  id: 1
+  name: Moving Head
+moving_mirror:
+  id: 2
+  name: Moving Mirror
+no_type:
+  id: 51
+  name: No Type

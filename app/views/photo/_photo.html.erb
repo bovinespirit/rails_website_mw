@@ -1,0 +1,42 @@
+<%# photo = photo object to be displayed -%>
+<%# photo_set = photo_set to use - optional -%>
+
+<div class="photo" style="width: 704px">
+  <%= photo_tag(photo, { :style => "margin: 0 #{350 - (photo.size[0] / 2)}px" }) %>
+  <ul class="meta-info sidebarr nobullet">
+    <li><em>Date:</em> <%= photo_create_date(photo) %></li>
+    <li><em>Tags:</em> <%= show_tags(photo) %></li>
+    <%= data_with_label("Camera model", photo.camera_model) %>
+    <%= data_with_label("Focal Length", photo.focal_length, :postfix => "mm") %>
+    <%= data_with_label("Aperture", photo.aperture, :prefix => "f") %>
+    <%= data_with_label('Exposure', photo.exposure, :postfix => "s") %>
+    <%= data_with_label('Processed with <a href="http://www.gimp.org/">The Gimp</a>', photo.processed_with_gimp) %>
+    <% if !photo_set.nil? -%>
+      <% if !(photo.first?(photo_set) and photo.last?(photo_set)) -%>
+        <li class="thumbs">
+          <div id="thumbbox">
+            <% tph = photo.first?(photo_set) ? photo.next(photo_set) : photo.prev(photo_set) -%>
+            <% tph = tph.prev(photo_set, photo) if tph and photo.last?(photo_set) and tph.prev(photo_set, photo) != nil -%>
+            <%= carousel_thumb(photo_set, tph, :left, 'block') if tph %>
+            <%= carousel_thumb(photo_set, tph.next(photo_set, photo), :right, 'block') if tph and tph.next(photo_set, photo) %> 
+          </div>
+          <div id="thumbnav" class="clear" style="display: block;">
+            <%= render :partial => 'thumbnav',
+                       :object => tph,
+                       :locals => {:unreal => false, :photo => photo, :photo_set => photo_set} %>
+          </div>
+        </li>
+      <% end -%>
+    <% end -%>
+    <li><strong>Sets which feature this photo:</strong></li>
+    <li>
+      <ul>
+        <% photo.photo_sets.each do |ps| -%>
+          <li><%= link_to ps.title, ps.uri %></li>
+        <% end -%>
+      </ul>
+    </li>
+  </ul>
+  <div class="description"><%= process_text(photo.description, 'Textile') %></div>
+  <div class="text clear"><%= process_text(photo.text) %></div>
+</div>

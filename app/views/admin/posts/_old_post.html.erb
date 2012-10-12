@@ -1,0 +1,13 @@
+<%# object => old Post -%>
+<%# post => current Post -%>
+<%# number => version number -%>
+<p>
+  Version: <%= number %> Updated: <%= old_post.updated_at.to_formatted_s(:long) %>
+</p>
+<%= render :partial => "post/post", :object => old_post %>
+<p>
+  <% form_tag(revert_post_url(post), :html => 'versionform') do -%>
+    <%= hidden_field_tag "number", number %>
+    <%= submit_tag "Edit this version" %>
+  <% end -%>
+</p>

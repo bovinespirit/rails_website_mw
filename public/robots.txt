@@ -1,0 +1,10 @@
+# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
+User-Agent: msnbot
+Crawl-Delay: 10
+User-Agent: Slurp
+Crawl-Delay: 10
+User-Agent: *
+Disallow: /404.html
+Disallow: /404
+Disallow: /500.html
+Disallow: /admin

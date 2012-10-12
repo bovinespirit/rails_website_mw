@@ -1,0 +1,36 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: manufacturers
+#
+#  id   :integer       not null, primary key
+#  www  :string(255)   
+#  name :string(255)   not null
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+martin:
+  id: 1
+  name: Martin
+  www: www.martin.dk
+clay_paky:
+  id: 2
+  name: Clay Paky
+  www: www.clay-paky.com
+dha:
+  id: 5
+  name: DHA
+  www: www.dhalighting.com
+osram:
+  id: 6
+  name: Osram
+  www: www.osram.com
+phillips:
+  id: 7
+  name: Philips
+  www: www.lighting.philips.com
+nomaker:
+  id: 51
+  name: "No Maker"
+  www: www.matthewwest.co.uk
+

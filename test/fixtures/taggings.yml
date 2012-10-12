@@ -1,0 +1,21 @@
+# tags.yml -> tagging_counts need updating when a new tagging is added
+one:
+  id: 1
+  taggable_type: 'Post'
+  taggable_id: 1
+  tag_id: 1
+two:
+  id: 2
+  taggable_type: 'Post'
+  taggable_id: 1
+  tag_id: 2
+three:
+  id: 3
+  taggable_type: 'Photo'
+  taggable_id: 1
+  tag_id: 2
+four:
+  id: 4
+  taggable_type: 'Photo'
+  taggable_id: 1
+  tag_id: 3

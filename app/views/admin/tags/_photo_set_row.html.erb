@@ -1,0 +1,6 @@
+<%# locals: -%>
+<%# tag => tag -%>
+<tr>
+  <td><%= link_to photo_set_row.title, formatted_photo_set_url(photo_set_row, :format => :html) %></td>
+  <td><%= button_to "Tag photos", tag_photo_set_url(:id => tag, :photo_set => photo_set_row, :format => :html) %></td>
+</tr>

@@ -1,0 +1,5 @@
+page.visual_effect :fade, "redirection_#{@redirection.id}", :duration => 1
+page.delay(1) do
+  page.remove "redirection_#{@redirection.id}"
+  page.visual_effect :highlight, 'redirection_list'
+end

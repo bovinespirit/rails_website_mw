@@ -1,0 +1,40 @@
+# == Schema Information
+# Schema version: 29
+#
+# Table name: gobos
+#
+#  id              :integer       not null, primary key
+#  number          :string(10)    
+#  description     :string(255)   default("- none -"), not null
+#  manufacturer_id :integer       
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+triangle_gobo:
+  id: 1
+  description: Triangle
+  manufacturer_id: 1
+fan_gobo:
+  id: 2
+  description: Fan
+  manufacturer_id: 1
+bar_gobo:
+  id: 3
+  description: Bar
+  manufacturer_id: 1
+thin_bars_gobo:
+  id: 23
+  description: Thin Bars
+  manufacturer_id: 1
+grid_ball_gobo:
+  id: 24
+  description: Grid Ball
+  manufacturer_id: 1
+circle_gobo:
+  id: 4
+  manufacturer_id: 4
+  description: Circle
+dot_gobo:
+  id: 5
+  manufacturer_id: 4
+  description: Dots
